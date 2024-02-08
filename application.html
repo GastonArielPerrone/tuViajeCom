@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<link rel="icon" href="content/icon/pngegg.png" type="image/x-icon">
+    <title>TuViajeCom :: Solicitud de presupuesto y viaje</title>
+</head>
+<body>
+    <h1 class="title">TuViaje<img class="car" src="content/icon/pngegg.png" width="70" height="75"><span>com</span></h1>
+    <div id="form-container">
+        <h2 class="form-title">Formulario de solicitud de presupuesto y viaje</h2>
+        <p>Por favor, solicitamos que rellene todos los campos para que podamos gestionarle detalladamente su solicitud.</p>
+        <p>Para su seguridad mantendremos sus datos de forma confidencial.</p>
+        <form action="https://formspree.io/f/xoqgerda" method="POST">
+            <h3 class="form-title"><u>Datos del solicitante</u></h3>
+            <label for="fullName" class="label">Nombre completo</label>
+            <input type="text" name="fullName" size="30" required><br>
+            <label for="userName" class="label">Usuario</label>
+            <input type="text" name="userName" size="20" required><br>
+            <label for="userEmail" class="label">Correo electrónico</label>
+            <input type="userEmail" name="fullName" size="30">
+            <h3 class="form-title"><u>Datos para el viaje</u></h3>
+            <label for="origin" class="label">Punto de partida</label>
+            <input type="text" name="origin" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
+            <label for="destine" class="label">Punto de destino</label>
+            <input type="text" name="destine" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
+            <label for="comment" class="label">Otros comentarios</label>
+            <textarea name="comment" id="comment" cols="40" rows="10" placeholder="Por favor, si tiene algún comentario extra a detallar hágalo aquí."></textarea><br><br>
+            <button type="submit">Enviar solicitud</button> <button type="reset">Limpiar</button>
+        </form>
+    </div>
+</body>
+</html>

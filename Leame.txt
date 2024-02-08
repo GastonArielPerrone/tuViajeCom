@@ -1,0 +1,36 @@
+Lista de elementos con ID y class:
+
+AUTO)
+#tradeMark (Elemento selector de marca).
+#model (Elemento selector de modelo).
+#path (Elemento input Patente).
+
+CHOFER)
+#fullName (Elemento input Nombre completo del chofer).
+#dniDriver (Elemento input DNI del chofer).
+#streetDriver (Elemento input Dirección del chofer).
+
+PASAJERO)
+#fullNamePassenger (Elemento input Nombre completo del pasajero).
+#DNIPassenger (Elemento input DNI del pasajero).
+#emailPassenger (Elemento email del pasajero).
+
+VIAJE)
+#originInput (Elemento input del Lugar de Orígen).
+#originHour (Elemento de Hora de llegada al punto de Orígen).
+#destinationPLace (Elemento de Destino del Pasajero).
+#distance (Elemento de Distancia del viaje).
+#estimatedTime (Elemento del Tiempo Estimado de viaje).
+#journeyTypeCity (Elemento input "radio" del tipo viaje CIUDAD).
+#journeyTypeRoad (Elemento input "radio" del tipo viaje RUTA).
+#journeyTypeMixed (Elemento input "radio" del tipo viaje MIXTO).
+
+ESTACIÓN DE SERVICIO)
+#serviceStation (Elemento select de Nombre de estación de servicio).
+#typeGasoline (Elemento select del Tipo de Nafta).
+
+BOTONES)
+.continue (Elemento BOTON para continuar con la operación).
+.delete (Elemento BOTON para borrar datos ingresados; pero NO enviados aún).
+
+

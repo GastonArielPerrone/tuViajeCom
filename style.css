@@ -1,0 +1,90 @@
+body {
+    background-image: url("content/back-ground/back-ground.gif");
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  a {
+    color: darkorange;
+  }
+
+  .car {
+    position: relative;
+    top: 20px;
+  }
+
+  .title, .form-title, .title-data-car, .title-data-driver, .title-data-passenger, .title-data-journey,
+  .title-data-serviceStation, p {
+    font-family: 'Bungee', sans-serif;
+    color: azure;
+  }
+
+  #form-container, #output-container {
+    width: 80%;
+    margin: auto;
+    background-color: black;
+    opacity: 70%;
+    padding: 20px;
+  }
+
+  .spanDescription, .description, .positionCenter {
+    font-family: 'Bungee', sans-serif;
+    color: azure;
+  }
+
+  .form-position {
+    text-align: center;
+  }
+
+  .label {
+    font-family: 'Bungee', sans-serif;
+    color: azure;
+    background-color: gray;
+  }
+  
+  #trademark, #model, #path, #fullName, #dniDriver, #streetDriver, #DNIPassenger,#fullNamePassenger, #emailPassenger, #originInput,
+  #destinationPlace, #distance, #estimatedTime, #originHour, #journeyType,#roundTrip, #serviceStation, #typeGasoline {
+    background-color: bisque;
+  }
+
+  button:hover{
+    background-color:dodgerblue;
+  }
+
+  table {
+    font-family: 'Bungee', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #dddddd;
+    max-width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: auto;
+    max-inline-size: 5px;
+    font-size: 60%;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  @media print{
+    div[id="form-container"]{
+      display: none;
+    }
+
+    div[id="output-container"]{
+      display: block;
+      position: relative;
+      bottom: 28px;
+    }
+
+    button[class="print"]{
+      display: none;
+    }
+  }
