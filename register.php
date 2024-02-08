@@ -15,7 +15,7 @@ $contrasena = $_POST['newPassword'];
 
 // Conexión a la base de datos
 $servername = "localhost";
-$username = "id21852283_tuviajecomar";
+$username = "root";
 $password = "Tuviajecom@r1";
 $dbname = "id21852283_tuviajecomar";
 
