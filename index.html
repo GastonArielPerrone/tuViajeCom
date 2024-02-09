@@ -15,14 +15,12 @@
     <div id="form-container" style="max-width: 60%; width: 300px;">
         <h2 class="form-title">Login</h2>
         <form action="login.php">
-            <label for="userName" class="label">Usuario</label>
-            <input type="text" name="userName" size="16" maxlength="16">
-            <br>
-            <label for="password" class="label">Contraseña</label>
-            <input type="password" name="password" size="11" minlength="8" maxlength="16">
-            <br>
-            <br>
-            <button type="submit">Ingresar</button>
+            <label for="typeUser" class="label">Tipo de usuario</label>
+            <select name="typeUser" id="typeUser">
+                <option value="--Seleccione--">--Seleccione--</option>
+                <option value="Conductor">Conductor</option>
+                <option value="Pasajero">Pasajero</option>
+            </select>
         </form>
         <h5 class="form-title">¿Aún no tienes cuenta? <span><a href="register.html">Regístrate aquí</a></span></h5>
     </div>
