@@ -21,6 +21,12 @@ body {
     color: azure;
   }
 
+  .pDescription {
+    font-family: 'Bungee', sans-serif;
+    color: azure;
+    font-size: 11px;
+  }
+
   #form-container, #output-container {
     width: 80%;
     margin: auto;
@@ -45,7 +51,7 @@ body {
   }
   
   #trademark, #model, #path, #fullName, #dniDriver, #streetDriver, #DNIPassenger,#fullNamePassenger, #emailPassenger, #originInput,
-  #destinationPlace, #distance, #estimatedTime, #originHour, #journeyType,#roundTrip, #serviceStation, #typeGasoline {
+  #destinationPlace, #distance, #estimatedTime, #originHour, #journeyType,#roundTrip, #serviceStation, #typeGasoline, #password {
     background-color: bisque;
   }
 
