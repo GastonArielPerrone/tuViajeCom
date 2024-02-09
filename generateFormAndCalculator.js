@@ -1019,6 +1019,359 @@ selectTrademark.addEventListener("change", function () {
                         })
                     });
 
+                    window.addEventListener('keydown', function(e){
+                        if(e.key === 'Enter'){
+                            //First create a VARIABLES for save in a function
+                        //DATA CAR --------------------------------------------------------------------------------------------
+                        var modelValue = modelInput.value;
+
+                        var pathValue = pathInput.value;
+                        pathValue = pathValue.toUpperCase();
+
+                        //DATA DRIVER -----------------------------------------------------------------------------------------
+                        var fullNameValue = fullNameInput.value;
+                        fullNameValue = fullNameValue.toUpperCase();
+
+                        var DNIDriverValue = DNIInput.value;
+
+                        var streetDriverValue = streetDriverInput.value;
+                        streetDriverValue = streetDriverValue.toUpperCase();
+
+                        //DATA PASSENGER--------------------------------------------------------------------------------------
+                        var fullNamePassengerValue = fullNamePassengerInput.value;
+                        fullNamePassengerValue = fullNamePassengerValue.toUpperCase();
+
+                        var DNIPassengerValue = DNIPassengerInput.value;
+
+                        var emailPassengerValue = emailPassengerInput.value;
+
+                        //DATA JOURNEY------------------------------------------------------------------------------------------
+                        var originValue = originInput.value;
+                        originValue = originValue.toUpperCase();
+
+                        var originHourValue = originHourInput.value;
+
+                        var destinatationPlaceValue = destinationPlaceInput.value;
+                        destinatationPlaceValue = destinatationPlaceValue.toUpperCase();
+
+                        var distanceValue = distanceKmInput.value;
+                        var estimatedTimeValue = estimatedTimeInput.value;
+
+                        //inputsRadiosTolls-----------------------------------------------
+                        var inputRadiosTolls = document.querySelectorAll("#toll");
+                        for(var i = 0; i < inputRadiosTolls.length; i++){
+                            if(inputRadiosTolls[i].checked){
+                                var valueRadioToll = inputRadiosTolls[i].value;
+                            }
+                        }
+
+                        //inputsRushHourValues----------------------------------------------
+                        var inputsRushHourValues = document.querySelectorAll("#rushHour");
+                        for(var i = 0; i < inputsRushHourValues.length; i++){
+                            if(inputsRushHourValues[i].checked){
+                                var inputRushHourValue = inputsRushHourValues[i].value;
+                            }
+                        }
+
+                        //inputCheckTolls..............
+                        var inputsChecksTolls = document.getElementsByName("checkTolls");
+                        var ArrayTolls = [];
+                        for(var i = 0; i < inputsChecksTolls.length; i++){
+                            if(inputsChecksTolls[i].checked){
+                                ArrayTolls.push(inputsChecksTolls[i].value);//Push the checksbox checked.
+                            }
+                        }
+                        tollsValue();
+                        function tollsValue() {
+                            var totalPriceToll = 0;
+                            for(var i = 0; i < ArrayTolls.length; i++){
+                                var tollPrice = tolls[ArrayTolls[i]][inputRushHourValue];
+                                totalPriceToll = totalPriceToll + tollPrice;
+                            }
+                            totalPriceToll = totalPriceToll * 2;
+                            return totalPriceToll;
+                        }
+
+                        //--------------------------------------------------------------------
+
+                        for (var i = 0; i < journeyTypeInputRadio.length; i++) {
+                            if (journeyTypeInputRadio[i].checked) {
+                                var journeyTypeValue = journeyTypeInputRadio[i].value;
+                            }
+                        }
+
+                        for (var i = 0; i < roundTrips.length; i++) {
+                            if (roundTrips[i].checked) {
+                                var roundTripValue = roundTrips[i].value;
+                            }
+                        }
+
+                        //DATA SERVICES STATIONS---------------------------------------------------------------------------------
+                        var stationServiceValue = serviceStationSelectInput.value;
+                        var typeGasolineValue = typeGasolineSelectInput.value;
+
+                        totalLiters();
+
+                        function totalLiters() {
+                            let totalLiters = (distanceValue * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
+                            totalLiters = totalLiters.toFixed(3);
+                            return totalLiters;
+                        }
+
+                        totalPrice();
+                        function totalPrice() {
+                            let totalPrice = totalLiters() * serviceStations[stationServiceValue][typeGasolineValue];
+                            totalPrice = parseFloat(totalPrice.toFixed(2));
+                            return totalPrice;
+                        }
+
+                        valueMinutes();
+                        var minutesPrice = 50;
+                        function valueMinutes() {
+                            var totalPriceMin = minutesPrice * estimatedTimeValue;
+                            totalPriceMin = parseFloat(totalPriceMin.toFixed(2));
+                            return totalPriceMin;
+                        }
+
+                        totalAmount();
+
+                        function totalAmount() {
+                            var total = totalPrice() + valueMinutes() + tollsValue();
+                            total = parseFloat(total.toFixed(2));
+                            return total;
+                        }
+                        //Create a elements----------------------------------------------------------------------------------------
+                        var outputContainer = document.getElementById("output-container");
+                        var h3ReservationData = document.createElement("h3");
+                        //Data Car---------------------------------------------------------------------------
+                        var h4DataCar = document.createElement("h4");
+                        var pTrademaker = document.createElement("p");
+                        var pModel = document.createElement("p");
+                        var pPath = document.createElement("p");
+                        //Data Driver--------------------------------------------------------------------------
+                        var h4DataDriver = document.createElement("h4");
+                        var pFullNameDriver = document.createElement("p");
+                        var pDNIDriver = document.createElement("p");
+                        var pStreedDriver = document.createElement("p");
+                        //Data Passenger------------------------------------------------------------------------
+                        var h4DataPassenger = document.createElement("h4");
+                        var pFullNamePassenger = document.createElement("p");
+                        var pDNIPassenger = document.createElement("p");
+                        var pEmailPassenger = document.createElement("p");
+                        //Data Journey---------------------------------------------------------------------------
+                        var h4DataJourney = document.createElement("h4");
+                        var pOrigin = document.createElement("p");
+                        var pOriginHour = document.createElement("p");
+                        var pDestinatationPlace = document.createElement("p");
+                        var pDistance = document.createElement("p");
+                        var pEstimatedTime = document.createElement("p");
+                        var pJourneyType = document.createElement("p");
+                        var pRoundTrip = document.createElement("p");
+
+                        var h4TollTableTitle = document.createElement("h4");
+                        var tollTable = document.createElement("table");
+                        var trTollDescription = document.createElement("tr");
+                        var tollsDescription = ["Consecionaria", "Tarifa", "Reembolso ida y vuelta"];
+                        var ptotalTolls = document.createElement("p");
+                        //Budget------------------------------------------------------------------------------------
+                        var h3Budget = document.createElement("h3");
+                        var pTotalLiters = document.createElement("p");
+                        var h4AmountTable = document.createElement("h4");
+                        var amountTable = ["Estación de servicio", "Combustible", "Valor x Lt", "Litros totales", "Importe total"];
+                        var table = document.createElement("table");
+                        var trDescriptionFile = document.createElement("tr");
+                        var trValuesFIle = document.createElement("tr");
+                        var h4EstimatedTime = document.createElement("h4");
+                        var tableEstimatedTime = document.createElement("table");
+                        var trEstimatedTimeDescription = document.createElement("tr");
+                        var trEstimatedTimeValue = document.createElement("tr");
+                        var amountTable2 = ["Precio x min", "Cantidad de minutos", "Importe total"];
+                        var h4AmountTotal = document.createElement("h4");
+                        //------------Create a button print-------------------------------------------------------------------------
+                        var buttonPrint = document.createElement("button");
+                        //------------------------------Now creat html---------------------------------------------------------------
+                        outputContainer.appendChild(h3ReservationData);
+                        h3ReservationData.innerHTML = "<u> Datos de la reserva </u>";
+                        h3ReservationData.classList.add("positionCenter");
+                        outputContainer.appendChild(h4DataCar);
+                        h4DataCar.innerHTML = "<u> Datos del vehículo </u>";
+                        h4DataCar.classList.add("title-data-car");
+                        outputContainer.appendChild(pTrademaker);
+                        pTrademaker.innerHTML = `Marca: ${trademarkValue}`;
+                        outputContainer.appendChild(pModel);
+                        pModel.innerHTML = `Modelo: ${modelValue}`;
+                        outputContainer.appendChild(pPath);
+                        pPath.innerHTML = `Patente: ${pathValue}`;
+
+                        outputContainer.appendChild(h4DataDriver);
+                        h4DataDriver.innerHTML = "<u> Datos del conductor </u>";
+                        h4DataDriver.classList.add("title-data-driver");
+                        outputContainer.appendChild(pFullNameDriver);
+                        pFullNameDriver.innerHTML = `Nombre completo: ${fullNameValue}`;
+                        outputContainer.appendChild(pDNIDriver);
+                        pDNIDriver.innerHTML = `D.N.I: ${DNIDriverValue}`;
+                        outputContainer.appendChild(pStreedDriver);
+                        pStreedDriver.innerHTML = `Domicilio: ${streetDriverValue}`;
+
+                        outputContainer.appendChild(h4DataPassenger);
+                        h4DataPassenger.innerHTML = "<u> Datos del pasajero </u>";
+                        h4DataPassenger.classList.add("title-data-passenger");
+                        outputContainer.appendChild(pFullNamePassenger);
+                        pFullNamePassenger.innerHTML = `Nombre completo: ${fullNamePassengerValue}`;
+                        outputContainer.appendChild(pDNIPassenger);
+                        pDNIPassenger.innerHTML = `D.N.I: ${DNIPassengerValue}`;
+                        outputContainer.appendChild(pEmailPassenger);
+                        pEmailPassenger.innerHTML = `Correo electrónico: ${emailPassengerValue}`;
+
+                        outputContainer.appendChild(h4DataJourney);
+                        h4DataJourney.innerHTML = "<u> Datos del viaje </u>";
+                        h4DataJourney.classList.add("title-data-journey");
+                        outputContainer.appendChild(pOrigin);
+                        pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
+                        outputContainer.appendChild(pOriginHour);
+                        pOriginHour.innerHTML = `Hora de llegada al punto de partida: ${originHourValue}`;
+                        outputContainer.appendChild(pDestinatationPlace);
+                        pDestinatationPlace.innerHTML = `Punto de destino: ${destinatationPlaceValue}`;
+                        outputContainer.appendChild(pDistance);
+                        pDistance.innerHTML = `Distancia: ${distanceValue} km`;
+                        outputContainer.appendChild(pEstimatedTime);
+                        pEstimatedTime.innerHTML = `Tiempo de viaje estimado: ${estimatedTimeValue} min`;
+                        outputContainer.appendChild(pJourneyType);
+                        if (journeyTypeValue === "Road") {
+                            var JourneyEspValue = "Ruta";
+                        }
+                        if (journeyTypeValue === "City") {
+                            var JourneyEspValue = "Ciudad";
+                        }
+                        if (journeyTypeValue === "Mixed") {
+                            var JourneyEspValue = "Mixto (Ruta-Ciudad)";
+                        };
+                        pJourneyType.innerHTML = `Lugar de manejo: ${JourneyEspValue}`;
+                        outputContainer.appendChild(pRoundTrip);
+
+                        if (roundTripValue === "going") {
+                            var translateRoundTrip = "Ida";
+                        } else
+                            if (roundTripValue === "goingAndLap") {
+                                var translateRoundTrip = "Ida y vuelta";
+                            }
+                        pRoundTrip.innerHTML = `Ida / Vuelta: ${translateRoundTrip}`;
+
+                        outputContainer.appendChild(h3Budget);
+                        h3Budget.innerHTML = "Presupuesto"
+                        h3Budget.classList.add("positionCenter");
+                        outputContainer.appendChild(pTotalLiters);
+
+                        pTotalLiters.innerHTML = `Total de litros a consumir: ${totalLiters()} lts`;
+                        outputContainer.appendChild(h4AmountTable);
+                        h4AmountTable.classList.add("title");
+                        h4AmountTable.innerHTML = "<u> Tabla de importe valor de nafta </u>";
+                        outputContainer.appendChild(table);
+                        table.appendChild(trDescriptionFile);
+                        amountTable.forEach((description) => {
+                            var thDescription = document.createElement("th");
+                            trDescriptionFile.appendChild(thDescription);
+                            thDescription.innerHTML = description;
+                        })
+                        table.appendChild(trValuesFIle);
+
+                        for (var i = 0; i < amountTable.length; i++) {
+                            var tdValues = document.createElement("td");
+                            trValuesFIle.appendChild(tdValues);
+                            if (i == 0) {
+                                tdValues.innerHTML = stationServiceValue;
+                            } else
+                                if (i == 1) {
+                                    tdValues.innerHTML = typeGasolineValue;
+                                } else
+                                    if (i == 2) {
+                                        tdValues.innerHTML = `$${serviceStations[stationServiceValue][typeGasolineValue]}`;
+                                    } else
+                                        if (i == 3) {
+                                            tdValues.textContent = `${totalLiters()} lts`;
+                                        } else
+                                            if (i == 4) {
+                                                tdValues.textContent = `$${totalPrice()}`;
+                                            }
+                                        }
+
+                        outputContainer.appendChild(h4EstimatedTime);
+                        h4EstimatedTime.innerHTML = "<u> Tabla de importe minutos </u>";
+                        h4EstimatedTime.classList.add("title");
+                        outputContainer.appendChild(tableEstimatedTime);
+                        tableEstimatedTime.appendChild(trEstimatedTimeDescription);
+                        amountTable2.forEach((description2) => {
+                            var thEstimatedDescription = document.createElement("th");
+                            trEstimatedTimeDescription.appendChild(thEstimatedDescription);
+                            thEstimatedDescription.innerHTML = description2;
+                        })
+                        tableEstimatedTime.appendChild(trEstimatedTimeValue);
+                        for (var i = 0; i < amountTable2.length; i++) {
+                            var tdEstimatedTimeValue = document.createElement("td");
+                            trEstimatedTimeValue.appendChild(tdEstimatedTimeValue);
+                            if (i == 0) {
+                                tdEstimatedTimeValue.innerHTML = `$${minutesPrice}`;
+                            } else
+                                if (i == 1) {
+                                    tdEstimatedTimeValue.innerHTML = `${estimatedTimeValue} min`;
+                                } else
+                                    if (i == 2) {
+                                        tdEstimatedTimeValue.innerHTML = `$${valueMinutes()}`;
+                                    }
+                        }
+
+                        outputContainer.appendChild(h4TollTableTitle);
+                        h4TollTableTitle.classList.add("title");
+                        h4TollTableTitle.innerHTML = "<u>Tabla de Importe de Peaje/s</u>";
+                        outputContainer.appendChild(tollTable);
+                        tollTable.appendChild(trTollDescription);
+                        tollsDescription.forEach((description3) => {
+                            var thTollDescription = document.createElement("th");
+                            trTollDescription.appendChild(thTollDescription);
+                            thTollDescription.innerHTML = description3;
+                        })
+                        for(var i = 0; i < ArrayTolls.length; i++){
+                            var trValuesToll = document.createElement("tr");
+                            tollTable.appendChild(trValuesToll);
+                            for(var j = 0; j < tollsDescription.length; j++){
+                                var tdTollValue = document.createElement("td");
+                                trValuesToll.appendChild(tdTollValue);
+                                if(j == 0){
+                                tdTollValue.innerHTML = `${ArrayTolls[i]}`;
+                                } else
+                                if(j == 1){
+                                tdTollValue.innerHTML = `$ ${tolls[ArrayTolls[i]][inputRushHourValue]}`;
+                                } else
+                                if(j == 2){
+                                var totalToll = tolls[ArrayTolls[i]][inputRushHourValue] * 2;
+                                tdTollValue.innerHTML = `$ ${totalToll}`;
+                                }
+                            }
+                        }
+                        outputContainer.appendChild(ptotalTolls);
+                        ptotalTolls.innerHTML = `Total peaje: $ ${tollsValue()}`;
+
+                        outputContainer.appendChild(h4AmountTotal);
+                        h4AmountTotal.classList.add("title");
+                        totalAmountFinally();
+                        function totalAmountFinally() {
+                            if (roundTripValue === "going") {
+                                return h4AmountTotal.innerHTML = "<u> Total a pagar IDA: </u> $ " + totalAmount() + "  (" + totalPrice() + " + " + valueMinutes() + " + " + tollsValue() + ")";
+                            } else
+                                if (roundTripValue === "goingAndLap") {
+                                    return h4AmountTotal.innerHTML = "<u> Total a pagar IDA/VUELTA: </u> $ " + totalAmount() * 2 + "  (" + totalPrice() + " + " + valueMinutes() + " + " + tollsValue() + ") x 2";
+                                }
+                        }
+                        outputContainer.appendChild(buttonPrint);
+                        buttonPrint.setAttribute("class", "print");
+                        buttonPrint.innerHTML = "Imprimir";
+
+                        buttonPrint.addEventListener("click", function () {
+                            window.print()
+                        })
+                        }
+                    })
+
                     buttonDelete.addEventListener("click", function () {
                         location.reload();
                     })
