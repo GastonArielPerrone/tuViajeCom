@@ -52,7 +52,8 @@ selectTypeValueUser.addEventListener("change", function(){
                 alert("¡Ups! No ha ingresado la contraseña");
             } else if(passwordValue != passwordOrigin){
                 alert("Acceso denegado. Contraseña incorrecta");
-            } else if(password == passwordOrigin){
+            } else if(passwordValue == passwordOrigin){
+                alert("Acceso correcto!")
                 window.open("systemDriver.html");
             }
         })
