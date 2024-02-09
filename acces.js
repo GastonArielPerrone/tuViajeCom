@@ -57,5 +57,23 @@ selectTypeValueUser.addEventListener("change", function(){
                 window.open("systemDriver.html");
             }
         })
+        window.addEventListener('keydown', function(e){
+            if(e.key === 'Enter'){
+            var password = document.getElementById("password");
+            //Save the password value in a variable.
+            var passwordValue = password.value;
+
+            var passwordOrigin = "36276343@";
+
+            if(passwordValue == ""){
+                alert("¡Ups! No ha ingresado la contraseña");
+            } else if(passwordValue != passwordOrigin){
+                alert("Acceso denegado. Contraseña incorrecta");
+            } else if(passwordValue == passwordOrigin){
+                alert("Acceso correcto!")
+                window.open("systemDriver.html");
+            }
+            }
+        })
     }
 })
