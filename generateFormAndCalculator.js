@@ -361,6 +361,9 @@ selectTrademark.addEventListener("change", function () {
             var originLabel = document.createElement("label");
             var originInput = document.createElement("input");
             var br7 = document.createElement("br");
+            var distanceOriginLabel = document.createElement("label");
+            var distanceOriginInput = document.createElement("input");
+            var br18 = document.createElement("br");
             var originHourLabel = document.createElement("label");
             var originHourInput = document.createElement("input");
             var br8 = document.createElement("br")
@@ -405,6 +408,17 @@ selectTrademark.addEventListener("change", function () {
             originInput.type = 'text';
             originInput.required = true;
             formDriver.appendChild(br7);
+            formDriver.appendChild(distanceOriginLabel);
+            distanceOriginLabel.classList.add("label");
+            distanceOriginLabel.setAttribute("name", "distanceOrigin");
+            distanceOriginLabel.innerHTML = "Distancia hasta P. de partida";
+            formDriver.appendChild(distanceOriginInput);
+            distanceOriginInput.setAttribute("name", "distanceOrigin");
+            distanceOriginInput.id = "distanceOrigin";
+            distanceOriginInput.type = "number";
+            distanceOriginInput.required = true;
+            formDriver.appendChild(br18);
+
             formDriver.appendChild(originHourLabel);
             originHourLabel.setAttribute("name", "originHour");
             originHourLabel.classList.add("label");
@@ -654,6 +668,7 @@ selectTrademark.addEventListener("change", function () {
                     var emailPassengerInput = document.getElementById("emailPassenger");//Elemento email del pasajero.
                     //Create a VARIABLES for save the values about Data Journey...............................
                     var originInput = document.getElementById("originInput");//Elemento input de Punto de orígen.
+                    var distanceOrigin = document.querySelector("#distanceOrigin");
                     var originHourInput = document.getElementById("originHour");//Elemento de Hora de LLegada al P. de orígen.
                     var destinationPlaceInput = document.getElementById("destinationPlace");//Elemento input de Destino.
                     var distanceKmInput = document.getElementById("distance");//Elemento input de Distancia.
@@ -696,6 +711,14 @@ selectTrademark.addEventListener("change", function () {
                         //DATA JOURNEY------------------------------------------------------------------------------------------
                         var originValue = originInput.value;
                         originValue = originValue.toUpperCase();
+
+                        var distanceOValue = parseFloat(distanceOrigin.value);
+                        if(distanceOValue == undefined){
+                            distanceOValue = 0
+                        } else {
+                            distanceOValue = distanceOValue;
+                        }
+
 
                         var originHourValue = originHourInput.value;
 
@@ -759,9 +782,8 @@ selectTrademark.addEventListener("change", function () {
                         var typeGasolineValue = typeGasolineSelectInput.value;
 
                         totalLiters();
-
                         function totalLiters() {
-                            let totalLiters = (distanceValue * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
+                            let totalLiters = ((distanceValue + distanceOValue) * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
                             totalLiters = totalLiters.toFixed(3);
                             return totalLiters;
                         }
@@ -788,6 +810,7 @@ selectTrademark.addEventListener("change", function () {
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
+
                         //Create a elements----------------------------------------------------------------------------------------
                         var outputContainer = document.getElementById("output-container");
                         var h3ReservationData = document.createElement("h3");
@@ -809,6 +832,7 @@ selectTrademark.addEventListener("change", function () {
                         //Data Journey---------------------------------------------------------------------------
                         var h4DataJourney = document.createElement("h4");
                         var pOrigin = document.createElement("p");
+                        var pDistanceO = document.createElement("p");
                         var pOriginHour = document.createElement("p");
                         var pDestinatationPlace = document.createElement("p");
                         var pDistance = document.createElement("p");
@@ -876,6 +900,8 @@ selectTrademark.addEventListener("change", function () {
                         h4DataJourney.classList.add("title-data-journey");
                         outputContainer.appendChild(pOrigin);
                         pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
+                        outputContainer.appendChild(pDistanceO);
+                        pDistanceO.innerHTML = `Distancia a P. de Orígen: ${distanceOValue} km`;
                         outputContainer.appendChild(pOriginHour);
                         pOriginHour.innerHTML = `Hora de llegada al punto de partida: ${originHourValue}`;
                         outputContainer.appendChild(pDestinatationPlace);
@@ -1049,6 +1075,14 @@ selectTrademark.addEventListener("change", function () {
                         var originValue = originInput.value;
                         originValue = originValue.toUpperCase();
 
+                        var distanceOValue = parseFloat(distanceOrigin.value);
+                        if(distanceOValue == undefined){
+                            distanceOValue = 0
+                        } else {
+                            distanceOValue = distanceOValue;
+                        }
+
+
                         var originHourValue = originHourInput.value;
 
                         var destinatationPlaceValue = destinationPlaceInput.value;
@@ -1111,9 +1145,8 @@ selectTrademark.addEventListener("change", function () {
                         var typeGasolineValue = typeGasolineSelectInput.value;
 
                         totalLiters();
-
                         function totalLiters() {
-                            let totalLiters = (distanceValue * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
+                            let totalLiters = ((distanceValue + distanceOValue) * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
                             totalLiters = totalLiters.toFixed(3);
                             return totalLiters;
                         }
@@ -1140,6 +1173,7 @@ selectTrademark.addEventListener("change", function () {
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
+
                         //Create a elements----------------------------------------------------------------------------------------
                         var outputContainer = document.getElementById("output-container");
                         var h3ReservationData = document.createElement("h3");
@@ -1161,6 +1195,7 @@ selectTrademark.addEventListener("change", function () {
                         //Data Journey---------------------------------------------------------------------------
                         var h4DataJourney = document.createElement("h4");
                         var pOrigin = document.createElement("p");
+                        var pDistanceO = document.createElement("p");
                         var pOriginHour = document.createElement("p");
                         var pDestinatationPlace = document.createElement("p");
                         var pDistance = document.createElement("p");
@@ -1181,6 +1216,7 @@ selectTrademark.addEventListener("change", function () {
                         var table = document.createElement("table");
                         var trDescriptionFile = document.createElement("tr");
                         var trValuesFIle = document.createElement("tr");
+                        var pTableDescription = document.createElement("p");
                         var h4EstimatedTime = document.createElement("h4");
                         var tableEstimatedTime = document.createElement("table");
                         var trEstimatedTimeDescription = document.createElement("tr");
@@ -1228,6 +1264,8 @@ selectTrademark.addEventListener("change", function () {
                         h4DataJourney.classList.add("title-data-journey");
                         outputContainer.appendChild(pOrigin);
                         pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
+                        outputContainer.appendChild(pDistanceO);
+                        pDistanceO.innerHTML = `Distancia a P. de Orígen: ${distanceOValue} km`;
                         outputContainer.appendChild(pOriginHour);
                         pOriginHour.innerHTML = `Hora de llegada al punto de partida: ${originHourValue}`;
                         outputContainer.appendChild(pDestinatationPlace);
@@ -1294,6 +1332,9 @@ selectTrademark.addEventListener("change", function () {
                                                 tdValues.textContent = `$${totalPrice()}`;
                                             }
                                         }
+                                        outputContainer.appendChild(pTableDescription);
+                                        pTableDescription.classList.add("pDescription");
+                                        pTableDescription.innerHTML = `*<u>Nota:</u> En el importe también incluye la distancia hasta el punto de orígen.`;
 
                         outputContainer.appendChild(h4EstimatedTime);
                         h4EstimatedTime.innerHTML = "<u> Tabla de importe minutos </u>";
@@ -1519,6 +1560,7 @@ selectTrademark.addEventListener("change", function () {
                     var emailPassengerInput = document.getElementById("emailPassenger");//Elemento email del pasajero.
                     //Create a VARIABLES for save the values about Data Journey...............................
                     var originInput = document.getElementById("originInput");//Elemento input de Punto de orígen.
+                    var distanceOrigin = document.querySelector("#distanceOrigin");
                     var originHourInput = document.getElementById("originHour");//Elemento de Hora de LLegada al P. de orígen.
                     var destinationPlaceInput = document.getElementById("destinationPlace");//Elemento input de Destino.
                     var distanceKmInput = document.getElementById("distance");//Elemento input de Distancia.
@@ -1566,6 +1608,14 @@ selectTrademark.addEventListener("change", function () {
                         var originValue = originInput.value;
                         originValue = originValue.toUpperCase();
 
+                        var distanceOValue = parseFloat(distanceOrigin.value);
+                        if(distanceOValue == undefined){
+                            distanceOValue = 0
+                        } else {
+                            distanceOValue = distanceOValue;
+                        }
+
+
                         var originHourValue = originHourInput.value;
 
                         var destinatationPlaceValue = destinationPlaceInput.value;
@@ -1591,9 +1641,8 @@ selectTrademark.addEventListener("change", function () {
                         var typeGasolineValue = typeGasolineSelectInput.value;
 
                         totalLiters();
-
                         function totalLiters() {
-                            let totalLiters = (distanceValue * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
+                            let totalLiters = ((distanceValue + distanceOValue) * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
                             totalLiters = totalLiters.toFixed(3);
                             return totalLiters;
                         }
@@ -1616,10 +1665,11 @@ selectTrademark.addEventListener("change", function () {
                         totalAmount();
 
                         function totalAmount() {
-                            var total = totalPrice() + valueMinutes();
+                            var total = totalPrice() + valueMinutes() + tollsValue();
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
+
                         //Create a elements----------------------------------------------------------------------------------------
                         var outputContainer = document.getElementById("output-container");
                         var h3ReservationData = document.createElement("h3");
@@ -1641,6 +1691,7 @@ selectTrademark.addEventListener("change", function () {
                         //Data Journey---------------------------------------------------------------------------
                         var h4DataJourney = document.createElement("h4");
                         var pOrigin = document.createElement("p");
+                        var pDistanceO = document.createElement("p");
                         var pOriginHour = document.createElement("p");
                         var pDestinatationPlace = document.createElement("p");
                         var pDistance = document.createElement("p");
@@ -1655,6 +1706,7 @@ selectTrademark.addEventListener("change", function () {
                         var table = document.createElement("table");
                         var trDescriptionFile = document.createElement("tr");
                         var trValuesFIle = document.createElement("tr");
+                        var pTableDescription = document.createElement("p");
                         var h4EstimatedTime = document.createElement("h4");
                         var tableEstimatedTime = document.createElement("table");
                         var trEstimatedTimeDescription = document.createElement("tr");
@@ -1702,6 +1754,8 @@ selectTrademark.addEventListener("change", function () {
                         h4DataJourney.classList.add("title-data-journey");
                         outputContainer.appendChild(pOrigin);
                         pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
+                        outputContainer.appendChild(pDistanceO);
+                        pDistanceO.innerHTML = `Distancia a P. de Orígen: ${distanceOValue} km`;
                         outputContainer.appendChild(pOriginHour);
                         pOriginHour.innerHTML = `Hora de llegada al punto de partida: ${originHourValue}`;
                         outputContainer.appendChild(pDestinatationPlace);
@@ -1768,6 +1822,10 @@ selectTrademark.addEventListener("change", function () {
                                                 tdValues.textContent = `$${totalPrice()}`;
                                             }
                         }
+                        outputContainer.appendChild(pTableDescription);
+                        pTableDescription.classList.add("pDescription");
+                        pTableDescription.innerHTML = `*<u>Nota:</u> En el importe también incluye la distancia hasta el punto de orígen.`;
+
 
                         outputContainer.appendChild(h4EstimatedTime);
                         h4EstimatedTime.innerHTML = "<u> Tabla de importe minutos </u>";
