@@ -358,6 +358,8 @@ selectTrademark.addEventListener("change", function () {
             //Code:
             var h3JourneyTitle = document.createElement("h3");
             var titleJourney = '<u> Datos del viaje </u>';
+            var reservationDateLabel = document.createElement("label");
+            var reservationDateInput = document.createElement("input");
             var originLabel = document.createElement("label");
             var originInput = document.createElement("input");
             var br7 = document.createElement("br");
