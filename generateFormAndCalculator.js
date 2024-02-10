@@ -418,7 +418,6 @@ selectTrademark.addEventListener("change", function () {
             distanceOriginInput.type = "number";
             distanceOriginInput.required = true;
             formDriver.appendChild(br18);
-
             formDriver.appendChild(originHourLabel);
             originHourLabel.setAttribute("name", "originHour");
             originHourLabel.classList.add("label");
