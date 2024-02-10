@@ -360,6 +360,8 @@ selectTrademark.addEventListener("change", function () {
             var titleJourney = '<u> Datos del viaje </u>';
             var reservationDateLabel = document.createElement("label");
             var reservationDateInput = document.createElement("input");
+            var reservationHourLabel = document.createElement("label");
+            var reservationHourInput = document.createElement("input");
             var originLabel = document.createElement("label");
             var originInput = document.createElement("input");
             var br7 = document.createElement("br");
