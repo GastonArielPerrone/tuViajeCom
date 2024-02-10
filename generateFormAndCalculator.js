@@ -360,8 +360,10 @@ selectTrademark.addEventListener("change", function () {
             var titleJourney = '<u> Datos del viaje </u>';
             var reservationDateLabel = document.createElement("label");
             var reservationDateInput = document.createElement("input");
+            var br19 = document.createElement("br");
             var reservationHourLabel = document.createElement("label");
             var reservationHourInput = document.createElement("input");
+            var br20 = document.createElement("br");
             var originLabel = document.createElement("label");
             var originInput = document.createElement("input");
             var br7 = document.createElement("br");
@@ -403,6 +405,16 @@ selectTrademark.addEventListener("change", function () {
             formDriver.appendChild(h3JourneyTitle);
             h3JourneyTitle.classList.add("title-data-journey");
             h3JourneyTitle.innerHTML = titleJourney;
+            formDriver.appendChild(reservationDateLabel);
+            reservationDateLabel.classList.add("label");
+            reservationDateLabel.setAttribute("name", "reservationDate");
+            reservationDateLabel.innerHTML = "Fecha de reserva";
+            formDriver.appendChild(reservationDateInput);
+            reservationDateInput.type = "date";
+            reservationDateInput.setAttribute("name", "reservationDate");
+            reservationDateInput.id = "reservationDate";
+            reservationDateInput.required = true;
+            formDriver.appendChild(br19);
             formDriver.appendChild(originLabel);
             originLabel.setAttribute("name", "originPlace");
             originLabel.classList.add("label");

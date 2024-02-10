@@ -51,7 +51,7 @@ body {
   }
   
   #trademark, #model, #path, #fullName, #dniDriver, #streetDriver, #DNIPassenger,#fullNamePassenger, #emailPassenger, #originInput,
-  #destinationPlace, #distance,#distanceOrigin, #estimatedTime, #originHour, #journeyType,#roundTrip, #serviceStation, #typeGasoline, #password {
+  #destinationPlace, #distance,#distanceOrigin,#reservationDate, #estimatedTime, #originHour, #journeyType,#roundTrip, #serviceStation, #typeGasoline, #password {
     background-color: bisque;
   }
 
