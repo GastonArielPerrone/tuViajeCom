@@ -424,6 +424,7 @@ selectTrademark.addEventListener("change", function () {
             reservationHourInput.setAttribute("name", "reservationHour");
             reservationHourInput.id = "reservationHour";
             reservationHourInput.required = true;
+            formDriver.appendChild(br20);
             formDriver.appendChild(originLabel);
             originLabel.setAttribute("name", "originPlace");
             originLabel.classList.add("label");
@@ -1653,6 +1654,11 @@ selectTrademark.addEventListener("change", function () {
 
 
                         //DATA JOURNEY------------------------------------------------------------------------------------------
+                        var reservationDateValue = reservationDate.value;
+                        var reservationDateValueSplit = reservationDateValue.split("-").reverse().join();
+
+                        var reservationHourValue = reservationHour.value;
+
                         var originValue = originInput.value;
                         originValue = originValue.toUpperCase();
 
@@ -1713,7 +1719,7 @@ selectTrademark.addEventListener("change", function () {
                         totalAmount();
 
                         function totalAmount() {
-                            var total = totalPrice() + valueMinutes() + tollsValue();
+                            var total = totalPrice() + valueMinutes();
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
@@ -1738,6 +1744,8 @@ selectTrademark.addEventListener("change", function () {
                         var pEmailPassenger = document.createElement("p");
                         //Data Journey---------------------------------------------------------------------------
                         var h4DataJourney = document.createElement("h4");
+                        var pReservationDate = document.createElement("p");
+                        var pReservationHour = document.createElement("p");
                         var pOrigin = document.createElement("p");
                         var pDistanceO = document.createElement("p");
                         var pOriginHour = document.createElement("p");
@@ -1800,6 +1808,10 @@ selectTrademark.addEventListener("change", function () {
                         outputContainer.appendChild(h4DataJourney);
                         h4DataJourney.innerHTML = "<u> Datos del viaje </u>";
                         h4DataJourney.classList.add("title-data-journey");
+                        outputContainer.appendChild(pReservationDate);
+                        pReservationDate.innerHTML = `Día de reserva: ${reservationDateValueSplit}`;
+                        outputContainer.appendChild(pReservationHour);
+                        pReservationHour.innerHTML = `Hora de reserva: ${reservationHourValue}`;
                         outputContainer.appendChild(pOrigin);
                         pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
                         outputContainer.appendChild(pDistanceO);
