@@ -1131,7 +1131,7 @@ selectTrademark.addEventListener("change", function () {
                         var destinatationPlaceValue = destinationPlaceInput.value;
                         destinatationPlaceValue = destinatationPlaceValue.toUpperCase();
 
-                        var distanceValue = distanceKmInput.value;
+                        var distanceValue = parseFloat(distanceKmInput.value);
                         var estimatedTimeValue = estimatedTimeInput.value;
 
                         //inputsRadiosTolls-----------------------------------------------
