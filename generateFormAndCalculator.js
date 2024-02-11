@@ -415,6 +415,15 @@ selectTrademark.addEventListener("change", function () {
             reservationDateInput.id = "reservationDate";
             reservationDateInput.required = true;
             formDriver.appendChild(br19);
+            formDriver.appendChild(reservationHourLabel);
+            reservationHourLabel.classList.add("label");
+            reservationHourLabel.setAttribute("name", "reservationHour");
+            reservationHourLabel.innerHTML = "Hora de reserva";
+            formDriver.appendChild(reservationHourInput);
+            reservationHourInput.type = "time";
+            reservationHourInput.setAttribute("name", "reservationHour");
+            reservationHourInput.id = "reservationHour";
+            reservationHourInput.required = true;
             formDriver.appendChild(originLabel);
             originLabel.setAttribute("name", "originPlace");
             originLabel.classList.add("label");
@@ -682,8 +691,10 @@ selectTrademark.addEventListener("change", function () {
                     var DNIPassengerInput = document.getElementById("DNIPassenger");//Elemento DNI pasajero.
                     var emailPassengerInput = document.getElementById("emailPassenger");//Elemento email del pasajero.
                     //Create a VARIABLES for save the values about Data Journey...............................
+                    var reservationDate = document.getElementById("reservationDate");//Elemento input date resrvation date.
+                    var reservationHour = document.getElementById("reservationHour");//Elemento input time reservation hour.
                     var originInput = document.getElementById("originInput");//Elemento input de Punto de orígen.
-                    var distanceOrigin = document.querySelector("#distanceOrigin");
+                    var distanceOrigin = document.querySelector("#distanceOrigin");//Elemento input number distance.
                     var originHourInput = document.getElementById("originHour");//Elemento de Hora de LLegada al P. de orígen.
                     var destinationPlaceInput = document.getElementById("destinationPlace");//Elemento input de Destino.
                     var distanceKmInput = document.getElementById("distance");//Elemento input de Distancia.
@@ -724,6 +735,11 @@ selectTrademark.addEventListener("change", function () {
                         var emailPassengerValue = emailPassengerInput.value;
 
                         //DATA JOURNEY------------------------------------------------------------------------------------------
+                        var reservationDateValue = reservationDate.value;
+                        var reservationDateValueSplit = reservationDateValue.split("-").reverse().join();
+
+                        var reservationHourValue = reservationHour.value;
+
                         var originValue = originInput.value;
                         originValue = originValue.toUpperCase();
 
@@ -846,6 +862,8 @@ selectTrademark.addEventListener("change", function () {
                         var pEmailPassenger = document.createElement("p");
                         //Data Journey---------------------------------------------------------------------------
                         var h4DataJourney = document.createElement("h4");
+                        var pReservationDate = document.createElement("p");
+                        var pReservationHour = document.createElement("p");
                         var pOrigin = document.createElement("p");
                         var pDistanceO = document.createElement("p");
                         var pOriginHour = document.createElement("p");
@@ -913,6 +931,10 @@ selectTrademark.addEventListener("change", function () {
                         outputContainer.appendChild(h4DataJourney);
                         h4DataJourney.innerHTML = "<u> Datos del viaje </u>";
                         h4DataJourney.classList.add("title-data-journey");
+                        outputContainer.appendChild(pReservationDate);
+                        pReservationDate.innerHTML = `Día de reserva: ${reservationDateValueSplit}`;
+                        outputContainer.appendChild(pReservationHour);
+                        pReservationHour.innerHTML = `Hora de reserva: ${reservationHourValue}`;
                         outputContainer.appendChild(pOrigin);
                         pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
                         outputContainer.appendChild(pDistanceO);
@@ -1087,6 +1109,11 @@ selectTrademark.addEventListener("change", function () {
                         var emailPassengerValue = emailPassengerInput.value;
 
                         //DATA JOURNEY------------------------------------------------------------------------------------------
+                        var reservationDateValue = reservationDate.value;
+                        var reservationDateValueSplit = reservationDateValue.split("-").reverse().join();
+
+                        var reservationHourValue = reservationHour.value;
+
                         var originValue = originInput.value;
                         originValue = originValue.toUpperCase();
 
@@ -1209,6 +1236,8 @@ selectTrademark.addEventListener("change", function () {
                         var pEmailPassenger = document.createElement("p");
                         //Data Journey---------------------------------------------------------------------------
                         var h4DataJourney = document.createElement("h4");
+                        var pReservationDate = document.createElement("p");
+                        var pReservationHour = document.createElement("p");
                         var pOrigin = document.createElement("p");
                         var pDistanceO = document.createElement("p");
                         var pOriginHour = document.createElement("p");
@@ -1277,6 +1306,10 @@ selectTrademark.addEventListener("change", function () {
                         outputContainer.appendChild(h4DataJourney);
                         h4DataJourney.innerHTML = "<u> Datos del viaje </u>";
                         h4DataJourney.classList.add("title-data-journey");
+                        outputContainer.appendChild(pReservationDate);
+                        pReservationDate.innerHTML = `Día de reserva: ${reservationDateValueSplit}`;
+                        outputContainer.appendChild(pReservationHour);
+                        pReservationHour.innerHTML = `Hora de reserva: ${reservationHourValue}`;
                         outputContainer.appendChild(pOrigin);
                         pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
                         outputContainer.appendChild(pDistanceO);
