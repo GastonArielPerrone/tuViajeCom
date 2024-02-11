@@ -12,7 +12,7 @@ $comment = $_POST['comment'];
 $servername = "localhost";
 $username = "id21852283_tuviajecomar";
 $password = "TuviajeCom@r1";
-$dbname = "id21852283_tuviajecomar";
+$dbname = "Reserv";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
