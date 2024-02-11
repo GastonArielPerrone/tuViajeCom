@@ -10,7 +10,7 @@ $comment = $_POST['comment'];
 
 // Conexión a la base de datos
 $servername = "localhost";
-$username = "id21852283_tuviajecomar";
+$username = "root";
 $password = "TuviajeCom@r1";
 $dbname = "Reserv";
 

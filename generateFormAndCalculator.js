@@ -1609,7 +1609,9 @@ selectTrademark.addEventListener("change", function () {
                     var emailPassengerInput = document.getElementById("emailPassenger");//Elemento email del pasajero.
                     //Create a VARIABLES for save the values about Data Journey...............................
                     var originInput = document.getElementById("originInput");//Elemento input de Punto de orígen.
-                    var distanceOrigin = document.querySelector("#distanceOrigin");
+                    var reservationDate = document.getElementById("reservationDate");//Elemento input date reservation.
+                    var reservationHour = document.getElementById("reservationHour");//Elemento input time reservation.
+                    var distanceOrigin = document.querySelector("#distanceOrigin");//Elemento input distance origin.
                     var originHourInput = document.getElementById("originHour");//Elemento de Hora de LLegada al P. de orígen.
                     var destinationPlaceInput = document.getElementById("destinationPlace");//Elemento input de Destino.
                     var distanceKmInput = document.getElementById("distance");//Elemento input de Distancia.
@@ -1675,7 +1677,7 @@ selectTrademark.addEventListener("change", function () {
                         var destinatationPlaceValue = destinationPlaceInput.value;
                         destinatationPlaceValue = destinatationPlaceValue.toUpperCase();
 
-                        var distanceValue = distanceKmInput.value;
+                        var distanceValue = parseFloat(distanceKmInput.value);
                         var estimatedTimeValue = estimatedTimeInput.value;
 
                         for (var i = 0; i < journeyTypeInputRadio.length; i++) {
