@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 }
 
 // Insertar los datos en la base de datos
-$sql = "INSERT INTO nombre_de_tu_tabla (nombreCompleto, usuarioEmail, diaDeReserva, horadDeReserva, puntoDeOrigin, puntoDeDestine, comentario)
+$sql = "INSERT INTO nombre_de_tu_tabla (nombreCompleto, usuarioEmail, diaDeReserva, horadDeReserva, puntoDeOrigen, puntoDeDestino, comentario)
 VALUES ('$fullName', '$userEmail', '$reservationDate', '$reservationHour', '$origin', '$destine', '$comment')";
 
 if ($conn->query($sql) === TRUE) {
