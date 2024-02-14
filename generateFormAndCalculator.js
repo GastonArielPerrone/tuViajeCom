@@ -746,7 +746,7 @@ selectTrademark.addEventListener("change", function () {
 
                         var distanceOValue = parseFloat(distanceOrigin.value);
                         if(distanceOValue == undefined){
-                            distanceOValue = 0
+                            distanceOValue = 0;
                         } else {
                             distanceOValue = distanceOValue;
                         }
