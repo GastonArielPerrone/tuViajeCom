@@ -369,9 +369,6 @@ selectTrademark.addEventListener("change", function () {
             var br7 = document.createElement("br");
             var distanceOriginLabel = document.createElement("label");
             var distanceOriginInput = document.createElement("input");
-            var br18 = document.createElement("br");
-            var originHourLabel = document.createElement("label");
-            var originHourInput = document.createElement("input");
             var br8 = document.createElement("br")
             var destinationPlaceLabel = document.createElement("label");
             var destinationPlaceInput = document.createElement("input");
@@ -443,15 +440,6 @@ selectTrademark.addEventListener("change", function () {
             distanceOriginInput.id = "distanceOrigin";
             distanceOriginInput.type = "number";
             distanceOriginInput.required = true;
-            formDriver.appendChild(br18);
-            formDriver.appendChild(originHourLabel);
-            originHourLabel.setAttribute("name", "originHour");
-            originHourLabel.classList.add("label");
-            originHourLabel.innerHTML = 'Hora de llegada al punto de partida';
-            formDriver.appendChild(originHourInput);
-            originHourInput.setAttribute("name", "originHour");
-            originHourInput.id = "originHour";
-            originHourInput.type = "time";
             formDriver.appendChild(br8);
             formDriver.appendChild(destinationPlaceLabel);
             destinationPlaceLabel.setAttribute("name", "destinationPlace");
@@ -696,7 +684,6 @@ selectTrademark.addEventListener("change", function () {
                     var reservationHour = document.getElementById("reservationHour");//Elemento input time reservation hour.
                     var originInput = document.getElementById("originInput");//Elemento input de Punto de orígen.
                     var distanceOrigin = document.querySelector("#distanceOrigin");//Elemento input number distance.
-                    var originHourInput = document.getElementById("originHour");//Elemento de Hora de LLegada al P. de orígen.
                     var destinationPlaceInput = document.getElementById("destinationPlace");//Elemento input de Destino.
                     var distanceKmInput = document.getElementById("distance");//Elemento input de Distancia.
                     var estimatedTimeInput = document.getElementById("estimatedTime");//Elemento input de Tiempo Estimado.
@@ -750,9 +737,6 @@ selectTrademark.addEventListener("change", function () {
                         } else {
                             distanceOValue = distanceOValue;
                         }
-
-
-                        var originHourValue = originHourInput.value;
 
                         var destinatationPlaceValue = destinationPlaceInput.value;
                         destinatationPlaceValue = destinatationPlaceValue.toUpperCase();
@@ -867,7 +851,6 @@ selectTrademark.addEventListener("change", function () {
                         var pReservationHour = document.createElement("p");
                         var pOrigin = document.createElement("p");
                         var pDistanceO = document.createElement("p");
-                        var pOriginHour = document.createElement("p");
                         var pDestinatationPlace = document.createElement("p");
                         var pDistance = document.createElement("p");
                         var pEstimatedTime = document.createElement("p");
@@ -940,8 +923,6 @@ selectTrademark.addEventListener("change", function () {
                         pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
                         outputContainer.appendChild(pDistanceO);
                         pDistanceO.innerHTML = `Distancia a P. de Orígen: ${distanceOValue} km`;
-                        outputContainer.appendChild(pOriginHour);
-                        pOriginHour.innerHTML = `Hora de llegada al punto de partida: ${originHourValue}`;
                         outputContainer.appendChild(pDestinatationPlace);
                         pDestinatationPlace.innerHTML = `Punto de destino: ${destinatationPlaceValue}`;
                         outputContainer.appendChild(pDistance);
@@ -1125,9 +1106,6 @@ selectTrademark.addEventListener("change", function () {
                             distanceOValue = distanceOValue;
                         }
 
-
-                        var originHourValue = originHourInput.value;
-
                         var destinatationPlaceValue = destinationPlaceInput.value;
                         destinatationPlaceValue = destinatationPlaceValue.toUpperCase();
 
@@ -1241,7 +1219,6 @@ selectTrademark.addEventListener("change", function () {
                         var pReservationHour = document.createElement("p");
                         var pOrigin = document.createElement("p");
                         var pDistanceO = document.createElement("p");
-                        var pOriginHour = document.createElement("p");
                         var pDestinatationPlace = document.createElement("p");
                         var pDistance = document.createElement("p");
                         var pEstimatedTime = document.createElement("p");
@@ -1315,8 +1292,6 @@ selectTrademark.addEventListener("change", function () {
                         pOrigin.innerHTML = `Punto de orígen: ${originValue}`;
                         outputContainer.appendChild(pDistanceO);
                         pDistanceO.innerHTML = `Distancia a P. de Orígen: ${distanceOValue} km`;
-                        outputContainer.appendChild(pOriginHour);
-                        pOriginHour.innerHTML = `Hora de llegada al punto de partida: ${originHourValue}`;
                         outputContainer.appendChild(pDestinatationPlace);
                         pDestinatationPlace.innerHTML = `Punto de destino: ${destinatationPlaceValue}`;
                         outputContainer.appendChild(pDistance);
