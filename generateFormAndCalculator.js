@@ -1180,7 +1180,7 @@ selectTrademark.addEventListener("change", function () {
                         }
 
                         valueMinutes();
-                        var minutesPrice = 50;
+                        var minutesPrice = 200;
                         function valueMinutes() {
                             var totalPriceMin = minutesPrice * estimatedTimeValue;
                             totalPriceMin = parseFloat(totalPriceMin.toFixed(2));
@@ -1587,7 +1587,6 @@ selectTrademark.addEventListener("change", function () {
                     var reservationDate = document.getElementById("reservationDate");//Elemento input date reservation.
                     var reservationHour = document.getElementById("reservationHour");//Elemento input time reservation.
                     var distanceOrigin = document.querySelector("#distanceOrigin");//Elemento input distance origin.
-                    var originHourInput = document.getElementById("originHour");//Elemento de Hora de LLegada al P. de orígen.
                     var destinationPlaceInput = document.getElementById("destinationPlace");//Elemento input de Destino.
                     var distanceKmInput = document.getElementById("distance");//Elemento input de Distancia.
                     var estimatedTimeInput = document.getElementById("estimatedTime");//Elemento input de Tiempo Estimado.
@@ -1646,9 +1645,6 @@ selectTrademark.addEventListener("change", function () {
                             distanceOValue = distanceOValue;
                         }
 
-
-                        var originHourValue = originHourInput.value;
-
                         var destinatationPlaceValue = destinationPlaceInput.value;
                         destinatationPlaceValue = destinatationPlaceValue.toUpperCase();
 
@@ -1686,7 +1682,7 @@ selectTrademark.addEventListener("change", function () {
                         }
 
                         valueMinutes();
-                        var minutesPrice = 50;
+                        var minutesPrice = 200;
                         function valueMinutes() {
                             var totalPriceMin = minutesPrice * estimatedTimeValue;
                             totalPriceMin = parseFloat(totalPriceMin.toFixed(2));
@@ -1794,7 +1790,7 @@ selectTrademark.addEventListener("change", function () {
                         outputContainer.appendChild(pDistanceO);
                         pDistanceO.innerHTML = `Distancia a P. de Orígen: ${distanceOValue} km`;
                         outputContainer.appendChild(pOriginHour);
-                        pOriginHour.innerHTML = `Hora de llegada al punto de partida: ${originHourValue}`;
+                        pOriginHour.innerHTML = `Hora de llegada al punto de partida: ${reservationHourValue}`;
                         outputContainer.appendChild(pDestinatationPlace);
                         pDestinatationPlace.innerHTML = `Punto de destino: ${destinatationPlaceValue}`;
                         outputContainer.appendChild(pDistance);
