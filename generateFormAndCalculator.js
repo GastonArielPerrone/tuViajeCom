@@ -1180,7 +1180,7 @@ selectTrademark.addEventListener("change", function () {
                         }
 
                         valueMinutes();
-                        var minutesPrice = 200;
+                        var minutesPrice = 100;
                         function valueMinutes() {
                             var totalPriceMin = minutesPrice * estimatedTimeValue;
                             totalPriceMin = parseFloat(totalPriceMin.toFixed(2));
@@ -1190,7 +1190,7 @@ selectTrademark.addEventListener("change", function () {
                         totalAmount();
 
                         function totalAmount() {
-                            var total = totalPrice() + valueMinutes() + tollsValue();
+                            var total = totalPrice()* 2 + valueMinutes() + tollsValue();
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
@@ -1682,7 +1682,7 @@ selectTrademark.addEventListener("change", function () {
                         }
 
                         valueMinutes();
-                        var minutesPrice = 200;
+                        var minutesPrice = 100;
                         function valueMinutes() {
                             var totalPriceMin = minutesPrice * estimatedTimeValue;
                             totalPriceMin = parseFloat(totalPriceMin.toFixed(2));
@@ -1692,7 +1692,7 @@ selectTrademark.addEventListener("change", function () {
                         totalAmount();
 
                         function totalAmount() {
-                            var total = totalPrice() + valueMinutes();
+                            var total = totalPrice() * 2 + valueMinutes();
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
