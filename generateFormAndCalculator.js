@@ -826,7 +826,10 @@ selectTrademark.addEventListener("change", function () {
                         totalAmount();
 
                         function totalAmount() {
-                            var total = totalPrice() + valueMinutes() + tollsValue();
+                            var total = (totalPrice() + valueMinutes() + tollsValue()) * 2;
+                            var isFriend = prompt("¿Estás tasando a un amigo/a o familiar? (si / no)");
+                            var isFirendUpperCase = isFriend.toUpperCase();
+                            isFirendUpperCase === "SI" ? total = total - total * (5 / 100) : total = total;
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
@@ -1053,10 +1056,10 @@ selectTrademark.addEventListener("change", function () {
                         totalAmountFinally();
                         function totalAmountFinally() {
                             if (roundTripValue === "going") {
-                                return h4AmountTotal.innerHTML = "<u> Total a pagar IDA: </u> $ " + totalAmount() + "  (" + totalPrice() + " + " + valueMinutes() + " + " + tollsValue() + ")";
+                                return h4AmountTotal.innerHTML = "<u> Total a pagar IDA: </u> $ " + totalAmount() + "  (Se calcula ida/vuelta del chofer)";
                             } else
                                 if (roundTripValue === "goingAndLap") {
-                                    return h4AmountTotal.innerHTML = "<u> Total a pagar IDA/VUELTA: </u> $ " + totalAmount() * 2 + "  (" + totalPrice() + " + " + valueMinutes() + " + " + tollsValue() + ") x 2";
+                                    return h4AmountTotal.innerHTML = "<u> Total a pagar IDA/VUELTA: </u> $ " + totalAmount();
                                 }
                         }
                         outputContainer.appendChild(buttonPrint);
@@ -1198,6 +1201,7 @@ selectTrademark.addEventListener("change", function () {
                             var isFriend = prompt("¿Estás tasando a un amigo/a o familiar? (si / no)");
                             var isFirendUpperCase = isFriend.toUpperCase();
                             isFirendUpperCase === "SI" ? total = total - total * (5 / 100) : total = total;
+                            isFirendUpperCase == "SI" ? console.log("Este cálculo aplica 5 % de descuento por ser amigo / familiar / conocido.") : console.log("No aplica descuento.");
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
@@ -1429,7 +1433,7 @@ selectTrademark.addEventListener("change", function () {
                         totalAmountFinally();
                         function totalAmountFinally() {
                             if (roundTripValue === "going") {
-                                return h4AmountTotal.innerHTML = "<u> Total a pagar IDA: </u> $ " + totalAmount() + " (para la vuelta del chofer)";
+                                return h4AmountTotal.innerHTML = "<u> Total a pagar IDA: </u> $ " + totalAmount() + "(Se calcula ida / vuelta del chofer)";
                             } else
                                 if (roundTripValue === "goingAndLap") {
                                     return h4AmountTotal.innerHTML = "<u> Total a pagar IDA/VUELTA: </u> $ " + totalAmount() * 2;
@@ -1704,6 +1708,7 @@ selectTrademark.addEventListener("change", function () {
                             var isFriend = prompt("¿Estás tasando a un amigo/a o familiar?");
                             var isFirendUpperCase = isFriend.toUpperCase();
                             isFirendUpperCase === "SI" ? total = total - total * (5 / 100) : total = total;
+                            isFirendUpperCase == "SI" ? console.log("Este cálculo aplica 5 % de descuento por ser amigo / familiar / conocido.") : console.log("No aplica descuento.");
                             total = parseFloat(total.toFixed(2));
                             return total;
                         }
