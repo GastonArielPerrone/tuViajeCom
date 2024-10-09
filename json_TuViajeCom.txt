@@ -1,0 +1,98 @@
+{
+    "serviceStations": {
+        "YPF": {
+            "Nafta SÚPER": 819,
+            "Nafta PREMIUM": 1018
+        },
+        "SHELL": {
+            "Nafta SÚPER": 893,
+            "Nafta PREMIUM": 1080
+        },
+        "AXION": {
+            "Nafta SÚPER": 839,
+            "Nafta PREMIUM": 1038
+        },
+        "PUMA": {
+            "Nafta SÚPER": 800,
+            "Nafta PREMIUM": 988
+        },
+        "DAPSA": {
+            "Nafta SÚPER": 800,
+            "Nafta PREMIUM": 987
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------
+{
+    "tolls": {
+        "AUBASA: Berazategui (a La Plata)": {
+            "Rush Hour": 300,
+            "Non Peak Hour": 200
+        },
+        "AUBASA: Bernal (a La Plata)": {
+            "Rush Hour": 300,
+            "Non Peak Hour": 200
+        },
+        "AUBASA: Doc Sud (a La Plata)": {
+            "Rush Hour": 400,
+            "Non Peak Hour": 300
+        },
+        "AUBASA: Gutiérrez (a La Plata)": {
+            "Rush Hour": 400,
+            "Non Peak Hour": 300
+        },
+        "AUBASA: Hudson (a La Plata)": {
+            "Rush Hour": 400,
+            "Non Peak Hour": 300
+        },
+        "AUBASA: Quilmes (a La Plata)": {
+            "Rush Hour": 300,
+            "Non Peak Hour": 200
+        },
+        "AUBASA: Villa Elisa (a La Plata)": {
+            "Rush Hour": 400,
+            "Non Peak Hour": 300
+        },
+        "AUBASA: Berazategui (a CABA)": {
+            "Rush Hour": 700,
+            "Non Peak Hour": 500
+        },
+        "AUBASA: Bernal (a CABA)": {
+            "Rush Hour": 700,
+            "Non Peak Hour": 500
+        },
+        "AUBASA: Dock Sud Acceso Sudeste (a CABA)": {
+            "Rush Hour": 400,
+            "Non Peak Hour": 300
+        },
+        "AUBASA: Gutiérrez (sentido a Ramal Gutiérrez)": {
+            "Rush Hour": 400,
+            "Non Peak Hour": 300
+        },
+        "AUBASA: Hudson (a CABA)": {
+            "Rush Hour": 800,
+            "Non Peak Hour": 600
+        },
+        "AUBASA: Quilmes (a CABA)": {
+            "Rush Hour": 700,
+            "Non Peak Hour": 500
+        },
+        "AUSA: 25 de Mayo": {
+            "Rush Hour": 910.43,
+            "Non Peak Hour": 642.43
+        },
+        "AUSA: Perito Moreno": {
+            "Rush Hour": 910.43,
+            "Non Peak Hour": 642.43
+        },
+        "AUSA: Illía - Retiro": {
+            "Rush Hour": 378.5,
+            "Non Peak Hour": 276.65
+        },
+        "AUSA: Sarmiento - Salguero": {
+            "Rush Hour": 378.5,
+            "Non Peak Hour": 276.65
+        }
+    }
+}
