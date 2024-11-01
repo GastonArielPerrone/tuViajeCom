@@ -1,7 +1,7 @@
 from peewee import *
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
-# Conectar a una base de datos SQLite (o crearla si no existe)
+# Conectar a una base de datos SQLite
 db = SqliteDatabase('tu_viaje_com.db')
 
 # Definir el modelo para los datos del formulario
@@ -19,7 +19,7 @@ class RequestForm(Model):
     comments = TextField(null=True)
 
     class Meta:
-        database = db  # Este modelo usa la base de datos "tu_viaje_com.db".
+        database = db
 
 # Crear la tabla
 def create_tables():
@@ -36,12 +36,12 @@ def save_request_form(data):
         number_dni_or_passport=data['numberDNIorPassport'],
         user_email=data['userEmail'],
         phone=data['tel'],
-        has_whatsapp=True if data['tieneWhatsApp'] == 'yes' else False,
+        has_whatsapp=data['tieneWhatsApp'] == 'yes',
         reservation_date=data['reservationDate'],
         reservation_hour=data['reservationHour'],
         origin=data['origin'],
         destination=data['destine'],
-        comments=data.get('comment', '')  # Usar cadena vacía si no hay comentarios
+        comments=data.get('comment', '')
     )
     db.close()
 
@@ -50,8 +50,12 @@ app = Flask(__name__)
 
 @app.route('/submit', methods=['POST'])
 def submit_form():
-    save_request_form(request.form)
-    return "Solicitud enviada con éxito", 200
+    try:
+        data = request.form
+        save_request_form(data)
+        return jsonify({"message": "Solicitud enviada con éxito"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     create_tables()  # Crear tablas al iniciar
