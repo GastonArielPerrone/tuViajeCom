@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-<link rel="icon" href="content/icon/pngegg.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link rel="icon" href="content/icon/pngegg.png" type="image/x-icon">
     <title>TuViajeCom :: Solicitud de presupuesto y viaje</title>
 </head>
 <body>
@@ -19,32 +19,32 @@
         <form action="/submit" method="POST">
             <h3 class="form-title"><u>Datos del solicitante</u></h3>
             <label for="fullName" class="label">Nombre completo</label>
-            <input type="text" name="fullName" size="30" required><br>
+            <input type="text" id="fullName" name="fullName" size="30" required><br>
             <label for="dniOrPassport" class="label">DNI / Pasaporte</label>
-            <label for="dniOrPassport" class="description">DNI</label>
-            <input type="radio" name="dniOrPassport" value="DNI">
-            <label for="dniOrPassport" class="description">Pasaporte</label>
-            <input type="radio" name="dniOrPassport" value="Passport"><br>
+            <label class="description">DNI</label>
+            <input type="radio" name="dniOrPassport" value="DNI" required>
+            <label class="description">Pasaporte</label>
+            <input type="radio" name="dniOrPassport" value="Passport" required><br>
             <label for="numberDNIorPassport" class="label">Número de DNI / Pasaporte</label>
-            <input type="text" name="numberDNIorPassport"><span class="description">(Para identificar antes de viajar)</span><br>
+            <input type="text" id="numberDNIorPassport" name="numberDNIorPassport" required><span class="description">(Para identificar antes de viajar)</span><br>
             <label for="userEmail" class="label">Correo electrónico</label>
-            <input type="email" name="userEmail" size="30"><br>
+            <input type="email" id="userEmail" name="userEmail" size="30" required><br>
             <label for="tel" class="label">Teléfono de contacto</label>
-            <input type="tel" name="tel" placeholder="cód.país+cód.área+número"><br>
+            <input type="tel" id="tel" name="tel" placeholder="cód.país+cód.área+número" required><br>
             <label for="tieneWhatsApp" class="label">¿Tiene WhatsApp?</label>
-            <label for="tieneWhatsApp" class="description">Si</label>
-            <input type="radio" name="tieneWhatsApp" value="yes" class="description" required>
-            <label for="tieneWhatsApp" class="description">No</label>
-            <input type="radio" name="tieneWhatsApp" value="no" class="description" required>
+            <label class="description">Si</label>
+            <input type="radio" name="tieneWhatsApp" value="yes" required>
+            <label class="description">No</label>
+            <input type="radio" name="tieneWhatsApp" value="no" required>
             <h3 class="form-title"><u>Datos para el viaje</u></h3>
             <label for="reservationDate" class="label">Fecha de reserva</label>
-            <input type="date" name="reservationDate"><br>
+            <input type="date" id="reservationDate" name="reservationDate" required><br>
             <label for="reservationHour" class="label">Hora de reserva</label>
-            <input type="time" name="reservationHour"><br>
+            <input type="time" id="reservationHour" name="reservationHour" required><br>
             <label for="origin" class="label">Punto de partida</label>
-            <input type="text" name="origin" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
+            <input type="text" id="origin" name="origin" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
             <label for="destine" class="label">Punto de destino</label>
-            <input type="text" name="destine" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
+            <input type="text" id="destine" name="destine" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
             <label for="comment" class="label">Otros comentarios</label><br>
             <textarea name="comment" id="comment" cols="40" rows="10" placeholder="Por favor, si tiene algún comentario extra a detallar hágalo aquí." style="max-width: 80%;"></textarea><br><br>
             <button type="submit">Enviar solicitud</button> <button type="reset">Limpiar</button>
