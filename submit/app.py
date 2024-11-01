@@ -48,7 +48,7 @@ def save_request_form(data):
 # Configurar la aplicación Flask
 app = Flask(__name__)
 
-@app.route('/submit', methods=['POST'])
+@app.route('/submit/', methods=['POST'])
 def submit_form():
     try:
         data = request.form
