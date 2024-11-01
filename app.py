@@ -1,70 +1,58 @@
-from flask import Flask, request, render_template, redirect, url_for, flash
 from peewee import *
-from datetime import datetime
+from flask import Flask, request
 
-app = Flask(__name__)
-app.secret_key = 'tu_clave_secreta'  # Necesaria para flash messages
-db = SqliteDatabase('tuViajeCom.db')
+# Conectar a una base de datos SQLite (o crearla si no existe)
+db = SqliteDatabase('tu_viaje_com.db')
 
-class Solicitud(Model):
+# Definir el modelo para los datos del formulario
+class RequestForm(Model):
     full_name = CharField()
-    dni_or_passport = CharField()
+    dni_or_passport = CharField(choices=[('DNI', 'DNI'), ('Passport', 'Pasaporte')])
     number_dni_or_passport = CharField()
     user_email = CharField()
-    tel = CharField()
-    tiene_whatsapp = CharField()
+    phone = CharField()
+    has_whatsapp = BooleanField()
     reservation_date = DateField()
     reservation_hour = TimeField()
     origin = CharField()
-    destine = CharField()
-    comment = TextField()
+    destination = CharField()
+    comments = TextField(null=True)
 
     class Meta:
-        database = db
+        database = db  # Este modelo usa la base de datos "tu_viaje_com.db".
 
-db.connect()
-db.create_tables([Solicitud], safe=True)
+# Crear la tabla
+def create_tables():
+    db.connect()
+    db.create_tables([RequestForm], safe=True)
+    db.close()
 
-@app.route('/')
-def index():
-    return render_template('formPassengers.html')
+# Función para guardar los datos del formulario
+def save_request_form(data):
+    db.connect()
+    RequestForm.create(
+        full_name=data['fullName'],
+        dni_or_passport=data['dniOrPassport'],
+        number_dni_or_passport=data['numberDNIorPassport'],
+        user_email=data['userEmail'],
+        phone=data['tel'],
+        has_whatsapp=True if data['tieneWhatsApp'] == 'yes' else False,
+        reservation_date=data['reservationDate'],
+        reservation_hour=data['reservationHour'],
+        origin=data['origin'],
+        destination=data['destine'],
+        comments=data.get('comment', '')  # Usar cadena vacía si no hay comentarios
+    )
+    db.close()
+
+# Configurar la aplicación Flask
+app = Flask(__name__)
 
 @app.route('/submit', methods=['POST'])
-def submit():
-    try:
-        full_name = request.form['fullName']
-        dni_or_passport = request.form['dniOrPassport']
-        number_dni_or_passport = request.form['numberDNIorPassport']
-        user_email = request.form['userEmail']
-        tel = request.form['tel']
-        tiene_whatsapp = request.form['tieneWhatsApp']
-        reservation_date = datetime.strptime(request.form['reservationDate'], '%Y-%m-%d').date()
-        reservation_hour = datetime.strptime(request.form['reservationHour'], '%H:%M').time()
-        origin = request.form['origin']
-        destine = request.form['destine']
-        comment = request.form['comment']
-        
-        # Crear una nueva solicitud
-        nueva_solicitud = Solicitud.create(
-            full_name=full_name,
-            dni_or_passport=dni_or_passport,
-            number_dni_or_passport=number_dni_or_passport,
-            user_email=user_email,
-            tel=tel,
-            tiene_whatsapp=tiene_whatsapp,
-            reservation_date=reservation_date,
-            reservation_hour=reservation_hour,
-            origin=origin,
-            destine=destine,
-            comment=comment
-        )
-        
-        flash(f'Solicitud de {nueva_solicitud.full_name} registrada con éxito.')
-        return redirect(url_for('index'))
-    
-    except Exception as e:
-        flash('Hubo un error al registrar la solicitud. Por favor, intenta nuevamente.')
-        return redirect(url_for('index'))
+def submit_form():
+    save_request_form(request.form)
+    return "Solicitud enviada con éxito", 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    create_tables()  # Crear tablas al iniciar
+    app.run(debug=True)  # Iniciar el servidor Flask
