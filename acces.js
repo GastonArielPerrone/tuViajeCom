@@ -7,7 +7,7 @@ selectTypeValueUser.addEventListener("change", function () {
     if (selectTypeValueUser.value === "--Seleccione--") {
         alert("Por favor, seleccione una opción del listado");
     } else if (selectTypeValueUser.value === "Pasajero") {
-        window.open("templates/form.html");
+        window.open("formPassengers.html");
     } else if (selectTypeValueUser.value === "Conductor") {
         createPasswordInput(divForm);
     }
