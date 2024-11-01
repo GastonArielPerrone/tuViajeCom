@@ -27,7 +27,7 @@ db.create_tables([Solicitud], safe=True)
 
 @app.route('/')
 def index():
-    return render_template('form.html')
+    return render_template('formPassengers.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
