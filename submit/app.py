@@ -1,5 +1,5 @@
 from peewee import Model, CharField, BooleanField, DateField, TimeField, TextField, SqliteDatabase  # type: ignore
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 # Conectar a una base de datos SQLite
 db = SqliteDatabase('tu_viaje_com.db')
@@ -52,6 +52,10 @@ def save_request_form(data):
 
 # Configurar la aplicación Flask
 app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('form.html')  # Asegúrate de que form.html esté en la carpeta 'templates'
 
 @app.route('/submit/', methods=['POST'])
 def submit_form():
