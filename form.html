@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,39 +15,56 @@
     <div id="form-container">
         <h2 class="form-title">Formulario de solicitud de presupuesto y viaje</h2>
         <p>Por favor, solicitamos que rellene todos los campos para que podamos gestionarle detalladamente su solicitud.</p>
-        <p>Para su seguridad mantendremos sus datos de forma confidencial.</p>
+        <p>Para su seguridad, mantendremos sus datos de forma confidencial.</p>
         <form action="/submit/" method="POST">
-            <h3 class="form-title"><u>Datos del solicitante</u></h3>
-            <label for="fullName" class="label">Nombre completo</label>
-            <input type="text" id="fullName" name="fullName" size="30" required><br>
-            <label for="dniOrPassport" class="label">DNI / Pasaporte</label>
-            <label class="description">DNI</label>
-            <input type="radio" name="dniOrPassport" value="DNI" required>
-            <label class="description">Pasaporte</label>
-            <input type="radio" name="dniOrPassport" value="Passport" required><br>
-            <label for="numberDNIorPassport" class="label">Número de DNI / Pasaporte</label>
-            <input type="text" id="numberDNIorPassport" name="numberDNIorPassport" required><span class="description">(Para identificar antes de viajar)</span><br>
-            <label for="userEmail" class="label">Correo electrónico</label>
-            <input type="email" id="userEmail" name="userEmail" size="30" required><br>
-            <label for="tel" class="label">Teléfono de contacto</label>
-            <input type="tel" id="tel" name="tel" placeholder="cód.país+cód.área+número" required><br>
-            <label for="tieneWhatsApp" class="label">¿Tiene WhatsApp?</label>
-            <label class="description">Si</label>
-            <input type="radio" name="tieneWhatsApp" value="yes" required>
-            <label class="description">No</label>
-            <input type="radio" name="tieneWhatsApp" value="no" required>
-            <h3 class="form-title"><u>Datos para el viaje</u></h3>
-            <label for="reservationDate" class="label">Fecha de reserva</label>
-            <input type="date" id="reservationDate" name="reservationDate" required><br>
-            <label for="reservationHour" class="label">Hora de reserva</label>
-            <input type="time" id="reservationHour" name="reservationHour" required><br>
-            <label for="origin" class="label">Punto de partida</label>
-            <input type="text" id="origin" name="origin" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
-            <label for="destine" class="label">Punto de destino</label>
-            <input type="text" id="destine" name="destine" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
-            <label for="comment" class="label">Otros comentarios</label><br>
-            <textarea name="comment" id="comment" cols="40" rows="10" placeholder="Por favor, si tiene algún comentario extra a detallar hágalo aquí." style="max-width: 80%;"></textarea><br><br>
-            <button type="submit">Enviar solicitud</button> <button type="reset">Limpiar</button>
+            <fieldset>
+                <legend><h3 class="form-title"><u>Datos del solicitante</u></h3></legend>
+                <label for="fullName" class="label">Nombre completo</label>
+                <input type="text" id="fullName" name="fullName" size="30" required><br>
+                
+                <label class="label">DNI / Pasaporte</label>
+                <label class="description">DNI</label>
+                <input type="radio" name="dniOrPassport" value="DNI" required>
+                <label class="description">Pasaporte</label>
+                <input type="radio" name="dniOrPassport" value="Passport" required><br>
+                
+                <label for="numberDNIorPassport" class="label">Número de DNI / Pasaporte</label>
+                <input type="text" id="numberDNIorPassport" name="numberDNIorPassport" required>
+                <span class="description">(Para identificar antes de viajar)</span><br>
+                
+                <label for="userEmail" class="label">Correo electrónico</label>
+                <input type="email" id="userEmail" name="userEmail" size="30" required><br>
+                
+                <label for="tel" class="label">Teléfono de contacto</label>
+                <input type="tel" id="tel" name="tel" placeholder="cód.país+cód.área+número" required><br>
+                
+                <label for="tieneWhatsApp" class="label">¿Tiene WhatsApp?</label>
+                <label class="description">Si</label>
+                <input type="radio" name="tieneWhatsApp" value="yes" required>
+                <label class="description">No</label>
+                <input type="radio" name="tieneWhatsApp" value="no" required>
+            </fieldset>
+
+            <fieldset>
+                <legend><h3 class="form-title"><u>Datos para el viaje</u></h3></legend>
+                <label for="reservationDate" class="label">Fecha de reserva</label>
+                <input type="date" id="reservationDate" name="reservationDate" required><br>
+                
+                <label for="reservationHour" class="label">Hora de reserva</label>
+                <input type="time" id="reservationHour" name="reservationHour" required><br>
+                
+                <label for="origin" class="label">Punto de partida</label>
+                <input type="text" id="origin" name="origin" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
+                
+                <label for="destine" class="label">Punto de destino</label>
+                <input type="text" id="destine" name="destine" placeholder="Nombre y número de calle / Depto o Casa / Localidad" size="30" required><br>
+                
+                <label for="comment" class="label">Otros comentarios</label><br>
+                <textarea name="comment" id="comment" cols="40" rows="10" placeholder="Por favor, si tiene algún comentario extra a detallar hágalo aquí." style="max-width: 80%;"></textarea><br><br>
+            </fieldset>
+
+            <button type="submit">Enviar solicitud</button>
+            <button type="reset">Limpiar</button>
         </form>
     </div>
 </body>

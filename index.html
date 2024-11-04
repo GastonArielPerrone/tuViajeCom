@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-<link rel="icon" href="content/icon/pngegg.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link rel="icon" href="content/icon/pngegg.png" type="image/x-icon">
     <title>TuViajeCom :: Inicio :: Login</title>
 </head>
 <body>
     <h1 class="title">TuViaje<img class="car" src="content/icon/pngegg.png" width="70" height="75"><span>com</span></h1>
     <div id="form-container" style="max-width: 60%; width: 300px;">
         <h2 class="form-title">Login</h2>
-            <label for="typeUser" class="label">Tipo de usuario</label>
-            <select name="typeUser" id="typeUser">
-                <option value="--Seleccione--">--Seleccione--</option>
-                <option value="Conductor">Conductor</option>
-                <option value="Pasajero">Pasajero</option>
-            </select>
+        <form action="your_script.py" method="post"> <!-- Cambia 'your_script.py' al nombre de tu script -->
+            <fieldset>
+                <legend>Información del usuario</legend>
+                <label for="typeUser" class="label">Tipo de usuario</label>
+                <select name="typeUser" id="typeUser">
+                    <option value="">--Seleccione--</option>
+                    <option value="Conductor">Conductor</option>
+                    <option value="Pasajero">Pasajero</option>
+                </select>
+            </fieldset>
+            <button type="submit">Iniciar sesión</button> <!-- Agregué un botón para enviar el formulario -->
+        </form>
     </div>
     <script src="acces.js"></script>
 </body>
