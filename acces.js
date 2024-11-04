@@ -8,7 +8,7 @@ selectTypeValueUser.addEventListener("change", function () {
         alert("Por favor, seleccione una opción del listado");
     } else if (selectTypeValueUser.value === "Pasajero") {
         // Redirigir a form.html en la carpeta templates
-        window.location.href = "/form"; // Cambia a la ruta correcta
+        window.open('templates/form.html'); // Cambia a la ruta correcta
     } else if (selectTypeValueUser.value === "Conductor") {
         createPasswordInput(divForm);
     }
