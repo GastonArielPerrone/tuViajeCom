@@ -55,7 +55,7 @@ def submit_form():
         save_request_form(data)
         return jsonify({"message": "Solicitud enviada con éxito"}), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "Error al enviar la solicitud", "details": str(e)}), 500
 
 if __name__ == '__main__':
     create_tables()  # Crear tablas al iniciar
