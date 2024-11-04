@@ -7,7 +7,8 @@ selectTypeValueUser.addEventListener("change", function () {
     if (selectTypeValueUser.value === "--Seleccione--") {
         alert("Por favor, seleccione una opción del listado");
     } else if (selectTypeValueUser.value === "Pasajero") {
-        window.open("form.html");
+        // Redirigir a form.html en la carpeta templates
+        window.location.href = "/form"; // Cambia a la ruta correcta
     } else if (selectTypeValueUser.value === "Conductor") {
         createPasswordInput(divForm);
     }
@@ -55,6 +56,6 @@ function validatePassword(passwordValue) {
         alert("Acceso denegado. Contraseña incorrecta");
     } else {
         alert("Acceso correcto!");
-        window.open("systemDriver.html");
+        window.location.href = "/systemDriver"; // Cambia a la ruta correcta
     }
 }
