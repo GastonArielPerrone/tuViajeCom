@@ -1,4 +1,4 @@
-from peewee import *
+from peewee import Model, CharField, BooleanField, DateField, TimeField, TextField, SqliteDatabase # type: ignore
 from flask import Flask, request, jsonify
 
 # Conectar a una base de datos SQLite
@@ -30,20 +30,26 @@ def create_tables():
 # Función para guardar los datos del formulario
 def save_request_form(data):
     db.connect()
-    RequestForm.create(
-        full_name=data['fullName'],
-        dni_or_passport=data['dniOrPassport'],
-        number_dni_or_passport=data['numberDNIorPassport'],
-        user_email=data['userEmail'],
-        phone=data['tel'],
-        has_whatsapp=data['tieneWhatsApp'] == 'yes',
-        reservation_date=data['reservationDate'],
-        reservation_hour=data['reservationHour'],
-        origin=data['origin'],
-        destination=data['destine'],
-        comments=data.get('comment', '')
-    )
-    db.close()
+    try:
+        RequestForm.create(
+            full_name=data['fullName'],
+            dni_or_passport=data['dniOrPassport'],
+            number_dni_or_passport=data['numberDNIorPassport'],
+            user_email=data['userEmail'],
+            phone=data['tel'],
+            has_whatsapp=data['tieneWhatsApp'] == 'yes',
+            reservation_date=data['reservationDate'],
+            reservation_hour=data['reservationHour'],
+            origin=data['origin'],
+            destination=data['destine'],
+            comments=data.get('comment', '')
+        )
+        print("Datos guardados con éxito.")
+    except Exception as e:
+        print("Error al guardar datos:", str(e))
+    finally:
+        db.close()
+
 
 # Configurar la aplicación Flask
 app = Flask(__name__)
