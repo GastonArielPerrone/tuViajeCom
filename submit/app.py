@@ -1,4 +1,4 @@
-from peewee import Model, CharField, BooleanField, DateField, TimeField, TextField, SqliteDatabase # type: ignore
+from peewee import Model, CharField, BooleanField, DateField, TimeField, TextField, SqliteDatabase  # type: ignore
 from flask import Flask, request, jsonify
 
 # Conectar a una base de datos SQLite
@@ -50,15 +50,14 @@ def save_request_form(data):
     finally:
         db.close()
 
-
 # Configurar la aplicación Flask
 app = Flask(__name__)
 
 @app.route('/submit/', methods=['POST'])
 def submit_form():
     try:
-        data = request.form
-        save_request_form(data)
+        data = request.form  # Obtener los datos del formulario
+        save_request_form(data)  # Guardar en la base de datos
         return jsonify({"message": "Solicitud enviada con éxito"}), 200
     except Exception as e:
         return jsonify({"error": "Error al enviar la solicitud", "details": str(e)}), 500
