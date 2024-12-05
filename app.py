@@ -57,6 +57,10 @@ app = Flask(__name__)
 def index():
     return render_template('form.html')  # Asegúrate de que form.html esté en la carpeta 'templates'
 
+@app.route('/systemDriver')
+def systemDriver():
+    return render_template('systemDriver.html')
+
 @app.route('/submit/', methods=['POST'])
 def submit_form():
     try:
