@@ -56,6 +56,6 @@ function validatePassword(passwordValue) {
         alert("Acceso denegado. Contraseña incorrecta");
     } else {
         alert("Acceso correcto!");
-        window.open('systemDriver.html'); // Cambia a la ruta correcta
+        window.open('/systemDriver.html'); // Cambia a la ruta correcta
     }
 }
