@@ -129,72 +129,96 @@ let serviceStations = {
 
 let tolls = {
     "AUBASA: Berazategui (a La Plata)": {
-        "Rush Hour": 300,
-        "Non Peak Hour": 200
+        "Rush Hour": 3400,
+        "Non Peak Hour": 2800
     },
     "AUBASA: Bernal (a La Plata)": {
-        "Rush Hour": 300,
-        "Non Peak Hour": 200
+        "Rush Hour": 3400,
+        "Non Peak Hour": 2800
     },
     "AUBASA: Doc Sud (a La Plata)": {
-        "Rush Hour": 400,
-        "Non Peak Hour": 300
+        "Rush Hour": 2000,
+        "Non Peak Hour": 1600
     },
     "AUBASA: Gutiérrez (a La Plata)": {
-        "Rush Hour": 400,
-        "Non Peak Hour": 300
+        "Rush Hour": 2000,
+        "Non Peak Hour": 1600
     },
     "AUBASA: Hudson (a La Plata)": {
-        "Rush Hour": 400,
-        "Non Peak Hour": 300
+        "Rush Hour": 2000,
+        "Non Peak Hour": 1600
     },
     "AUBASA: Quilmes (a La Plata)": {
-        "Rush Hour": 300,
-        "Non Peak Hour": 200
+        "Rush Hour": 3400,
+        "Non Peak Hour": 2800
     },
     "AUBASA: Villa Elisa (a La Plata)": {
-        "Rush Hour": 400,
-        "Non Peak Hour": 300
+        "Rush Hour": 2000,
+        "Non Peak Hour": 1600
     },
     "AUBASA: Berazategui (a CABA)": {
         "Rush Hour": 700,
         "Non Peak Hour": 500
     },
     "AUBASA: Bernal (a CABA)": {
-        "Rush Hour": 700,
-        "Non Peak Hour": 500
+        "Rush Hour": 3400,
+        "Non Peak Hour": 2800
     },
     "AUBASA: Dock Sud Acceso Sudeste (a CABA)": {
-        "Rush Hour": 400,
-        "Non Peak Hour": 300
+        "Rush Hour": 2000,
+        "Non Peak Hour": 1600
     },
     "AUBASA: Gutiérrez (sentido a Ramal Gutiérrez)": {
-        "Rush Hour": 400,
-        "Non Peak Hour": 300
+        "Rush Hour": 2000,
+        "Non Peak Hour": 1600
     },
     "AUBASA: Hudson (a CABA)": {
-        "Rush Hour": 800,
-        "Non Peak Hour": 600
+        "Rush Hour": 4000,
+        "Non Peak Hour": 3200
     },
     "AUBASA: Quilmes (a CABA)": {
-        "Rush Hour": 700,
-        "Non Peak Hour": 500
+        "Rush Hour": 3400,
+        "Non Peak Hour": 2800
+    },
+    "AUBASA: Samborombón": {
+        "Rush Hour": 4200,
+        "Non Peak our": 4200
+    },
+    "AUBASA: Maipú": {
+        "Rush Hour": 4200,
+        "Non Peak our": 4200
+    },
+    "AUBASA: Peaje (La Huella)": {
+        "Rush Hour": 4200,
+        "Non Peak our": 4200
+    },
+    "AUBASA: Peaje (Mar Chiquita)": {
+        "Rush Hour": 2000,
+        "Non Peak our": 2000
+    },
+    "AUBASA: Peaje (Gral. Madariaga)": {
+        "Rush Hour": 1800,
+        "Non Peak our": 1800
     },
     "AUSA: 25 de Mayo": {
-        "Rush Hour": 910.43,
-        "Non Peak Hour": 642.43
+        "Rush Hour": 3072.71,
+        "Non Peak Hour": 2168.21
     },
     "AUSA: Perito Moreno": {
-        "Rush Hour": 910.43,
-        "Non Peak Hour": 642.43
+        "Rush Hour": 3072.71,
+        "Non Peak Hour": 2168.21
     },
     "AUSA: Illía - Retiro": {
-        "Rush Hour": 378.5,
-        "Non Peak Hour": 276.65
+        "Rush Hour": 1277.44,
+        "Non Peak Hour": 903.33
     },
     "AUSA: Sarmiento - Salguero": {
-        "Rush Hour": 378.5,
-        "Non Peak Hour": 276.65
+        "Rush Hour": 1277.44,
+        "Non Peak Hour": 903.33
+    },
+    "AUSA: Alberti": {
+        "Rush Hour": 867.21,
+        "Non Peak Hour": 686.65
     }
 }
 
