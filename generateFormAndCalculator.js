@@ -219,7 +219,31 @@ let tolls = {
     "AUSA: Alberti": {
         "Rush Hour": 867.21,
         "Non Peak Hour": 686.65
-    }
+    },
+    "AU. SOL:": {
+        "Rush Hour": 700,
+        "Non Peak Hour": 900
+    },
+    "CAMINOS DEL RÍO URUGUAY: Peaje (Zárate)": {
+        "Rush Hour": 3200,
+        "Non Peak Hour": 3200
+    },
+    "CAMINOS DEL RÍO URUGUAY: Peaje (Elía)": {
+        "Rush Hour": 1800,
+        "Non Peak Hour": 1800
+    },
+    "CAMINOS DEL RÍO URUGUAY: Peaje (Piedritas)": {
+        "Rush Hour": 900,
+        "Non Peak Hour": 900
+    },
+    "CAMINOS DEL RÍO URUGUAY: Peaje (Yeruá)": {
+        "Rush Hour": 900,
+        "Non Peak Hour": 900
+    },
+    "CAMINOS DEL RÍO URUGUAY: Peaje (Isla La Deseada)": {
+        "Rush Hour": 900,
+        "Non Peak Hour": 900
+    },
 }
 
 //____________________Generate Form_____________________________________________________________________
