@@ -106,24 +106,24 @@ let cars = {
 //____________Services Stations__________________________________________________________________________
 let serviceStations = {
     "YPF": {
-        "Nafta SÚPER": 819,
-        "Nafta PREMIUM": 1018
+        "Nafta SÚPER": 1155,
+        "Nafta PREMIUM": 1423
     },
     "SHELL": {
-        "Nafta SÚPER": 893,
-        "Nafta PREMIUM": 1080
+        "Nafta SÚPER": 1218,
+        "Nafta PREMIUM": 1482
     },
     "AXION": {
-        "Nafta SÚPER": 839,
-        "Nafta PREMIUM": 1038
+        "Nafta SÚPER": 1212,
+        "Nafta PREMIUM": 1482
     },
     "PUMA": {
-        "Nafta SÚPER": 800,
-        "Nafta PREMIUM": 988
+        "Nafta SÚPER": 1167,
+        "Nafta PREMIUM": 1437
     },
     "DAPSA": {
-        "Nafta SÚPER": 800,
-        "Nafta PREMIUM": 987
+        "Nafta SÚPER": 1128,
+        "Nafta PREMIUM": 1394
     }
 };
 
