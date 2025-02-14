@@ -225,12 +225,12 @@ let tolls = {
         "Non Peak Hour": 900
     },
     "CAMINOS DEL RÍO URUGUAY: Peaje (Zárate)": {
-        "Rush Hour": 3200,
-        "Non Peak Hour": 3200
+        "Rush Hour": 1600,
+        "Non Peak Hour": 1600
     },
     "CAMINOS DEL RÍO URUGUAY: Peaje (Elía)": {
-        "Rush Hour": 1800,
-        "Non Peak Hour": 1800
+        "Rush Hour": 900,
+        "Non Peak Hour": 900
     },
     "CAMINOS DEL RÍO URUGUAY: Peaje (Piedritas)": {
         "Rush Hour": 900,
