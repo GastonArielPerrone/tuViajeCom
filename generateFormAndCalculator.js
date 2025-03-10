@@ -515,7 +515,7 @@ selectTrademark.addEventListener("change", function () {
             formDriver.appendChild(estimatedTimeLabel);
             estimatedTimeLabel.setAttribute("name", "estimatedTime");
             estimatedTimeLabel.classList.add("label");
-            estimatedTimeLabel.innerHTML = 'Tiempo de viaje estimado';
+            estimatedTimeLabel.innerHTML = 'Tiempo de viaje estimado (en minutos)';
             formDriver.appendChild(estimatedTimeInput);
             estimatedTimeInput.setAttribute("name", "estimatedTime");
             estimatedTimeInput.id = "estimatedTime";
@@ -851,8 +851,8 @@ selectTrademark.addEventListener("change", function () {
 
                         totalLiters();
                         function totalLiters() {
-                            let totalLiters = ((distanceValue + distanceOValue) * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
-                            totalLiters = totalLiters.toFixed(3);
+                            let totalLiters = ((distanceValue + distanceOValue) / cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue]);
+                            totalLiters = totalLiters.toFixed(2);
                             return totalLiters;
                         }
 
