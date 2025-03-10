@@ -40,10 +40,10 @@ let cars = {
                 "Road": 4.7,
                 "Mixed": 6.02
             },
-            "Onix Joy 1.4 L": {
-                "City": 9.7,
-                "Road": 5.6,
-                "Mixed": 7.1
+            "Onix Joy 1.4 L V2018": {
+                "City": 13,
+                "Road": 16,
+                "Mixed": 14
             },
             "Onix Plus 1.0 MT": {
                 "City": 7.9,
