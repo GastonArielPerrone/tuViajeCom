@@ -1223,7 +1223,7 @@ selectTrademark.addEventListener("change", function () {
                         totalLiters();
                         function totalLiters() {
                             let totalLiters = ((distanceValue + distanceOValue) * cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue] / 100);
-                            totalLiters = totalLiters.toFixed(3);
+                            totalLiters = totalLiters.toFixed(2);
                             return totalLiters;
                         }
 
