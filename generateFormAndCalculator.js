@@ -11,51 +11,56 @@ let cars = {
         BYD: null,
         Chevrolet: {
             "Cruze 4P AT": {
-                "City": 8.4,
-                "Road": 5.6,
-                "Mixed": 6.7
+                "City": 10,
+                "Road": 14,
+                "Mixed": 12
             },
             "Cruze 4P MT": {
-                "City": 8.3,
-                "Road": 5.3,
-                "Mixed": 6.4
+                "City": 11,
+                "Road": 15,
+                "Mixed": 15
             },
             "Cruze 5P MT": {
-                "City": 8.2,
-                "Road": 5.6,
-                "Mixed": 6.6
+                "City": 11,
+                "Road": 15,
+                "Mixed": 13
             },
             "Onix 1.0 AT": {
-                "City": 8.5,
-                "Road": 4.9,
-                "Mixed": 6.2
+                "City": 12,
+                "Road": 16,
+                "Mixed": 14
             },
             "Onix 1.0 MT": {
-                "City": 7.9,
-                "Road": 5.0,
-                "Mixed": 6.0
+                "City": 13,
+                "Road": 17,
+                "Mixed": 15
             },
             "Onix 1.2 MT": {
-                "City": 8.1,
-                "Road": 4.7,
-                "Mixed": 6.02
+                "City": 12,
+                "Road": 16,
+                "Mixed": 14
             },
             "Onix Joy 1.4 L V2018": {
-                "City": 13,
+                "City": 12,
                 "Road": 16,
                 "Mixed": 14
             },
             "Onix Plus 1.0 MT": {
-                "City": 7.9,
-                "Road": 4.5,
-                "Mixed": 5.8
+                "City": 13,
+                "Road": 17,
+                "Mixed": 15
             }
         },
         Citroen: {
-            "Cactus C4": {
-                "City": 5.6,
-                "Road": 4.6,
-                "Mixed": 5.3
+            "Cactus C4 1.6 VTi": {
+                "City": 10,
+                "Road": 14,
+                "Mixed": 12
+            },
+            "Cactus C4 1.6 HDi": {
+                "City": 16,
+                "Road": 20,
+                "Mixed": 18
             }
         },
         Dacia: null,
