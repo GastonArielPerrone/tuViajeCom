@@ -10,57 +10,57 @@ let cars = {
         BMW: null,
         BYD: null,
         Chevrolet: {
-            "Cruze 4P AT": {
-                "City": 10,
-                "Road": 14,
-                "Mixed": 12
+            "Cruze 4P AT": { // Chevrolet Cruze 1.4 Turbo Automático
+                "City": 9,  // Antes: 10
+                "Road": 14, // Igual que antes
+                "Mixed": 11 // Antes: 12
             },
-            "Cruze 4P MT": {
-                "City": 11,
-                "Road": 15,
-                "Mixed": 15
+            "Cruze 4P MT": { // Chevrolet Cruze 1.4 Turbo Manual
+                "City": 10,  // Antes: 11
+                "Road": 15,  // Igual que antes
+                "Mixed": 12  // Antes: 15
             },
-            "Cruze 5P MT": {
-                "City": 11,
-                "Road": 15,
-                "Mixed": 13
+            "Cruze 5P MT": { // Chevrolet Cruze 5 puertas Manual
+                "City": 10,  // Antes: 11
+                "Road": 15,  // Igual que antes
+                "Mixed": 12  // Antes: 13
             },
-            "Onix 1.0 AT": {
-                "City": 12,
-                "Road": 16,
-                "Mixed": 14
+            "Onix 1.0 AT": { // Chevrolet Onix 1.0 Turbo Automático
+                "City": 11,  // Antes: 12
+                "Road": 16,  // Igual que antes
+                "Mixed": 13  // Antes: 14
             },
-            "Onix 1.0 MT": {
-                "City": 13,
-                "Road": 17,
-                "Mixed": 15
+            "Onix 1.0 MT": { // Chevrolet Onix 1.0 Turbo Manual
+                "City": 12,  // Antes: 13
+                "Road": 17,  // Igual que antes
+                "Mixed": 14  // Antes: 15
             },
-            "Onix 1.2 MT": {
-                "City": 12,
-                "Road": 16,
-                "Mixed": 14
+            "Onix 1.2 MT": { // Chevrolet Onix 1.2 Aspirado Manual
+                "City": 11,  // Antes: 12
+                "Road": 16,  // Igual que antes
+                "Mixed": 13  // Antes: 14
             },
-            "Onix Joy 1.4 L V2018": {
-                "City": 12,
-                "Road": 16,
-                "Mixed": 14
+            "Onix Joy 1.4 L V2018": { // Chevrolet Onix Joy 1.4 Aspirado Manual
+                "City": 10,  // Antes: 12
+                "Road": 16,  // Igual que antes
+                "Mixed": 13  // Antes: 14
             },
-            "Onix Plus 1.0 MT": {
-                "City": 13,
-                "Road": 17,
-                "Mixed": 15
+            "Onix Plus 1.0 MT": { // Chevrolet Onix Plus 1.0 Turbo Manual
+                "City": 12,  // Antes: 13
+                "Road": 17,  // Igual que antes
+                "Mixed": 14  // Antes: 15
             }
         },
         Citroen: {
-            "Cactus C4 1.6 VTi": {
-                "City": 10,
-                "Road": 14,
-                "Mixed": 12
+            "Cactus C4 1.6 VTi": { // Citroën C4 Cactus 1.6 Nafta
+                "City": 9,   // Antes: 10
+                "Road": 14,  // Igual que antes
+                "Mixed": 11  // Antes: 12
             },
-            "Cactus C4 1.6 HDi": {
-                "City": 16,
-                "Road": 20,
-                "Mixed": 18
+            "Cactus C4 1.6 HDi": { // Citroën C4 Cactus 1.6 Diesel
+                "City": 14,  // Antes: 16
+                "Road": 20,  // Igual que antes
+                "Mixed": 16  // Antes: 18
             }
         },
         Dacia: null,
@@ -107,7 +107,6 @@ let cars = {
         Volvo: null
     },
 }
-
 //____________Services Stations__________________________________________________________________________
 let serviceStations = {
     "YPF": {
@@ -855,11 +854,40 @@ selectTrademark.addEventListener("change", function () {
                         var typeGasolineValue = typeGasolineSelectInput.value;
 
                         totalLiters();
-                        function totalLiters() {
-                            let totalLiters = ((distanceValue + distanceOValue) / cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue]);
-                            totalLiters = totalLiters.toFixed(2);
-                            return totalLiters;
-                        }
+                        function totalLiters(distanceValue, distanceOValue, camelCaseTrademark, modelValue, journeyTypeValue) {
+                            // Verificar que la marca existe
+                            if (!cars.trademark[camelCaseTrademark]) {
+                                console.error("Error: Marca no encontrada.");
+                                return null;
+                            }
+                        
+                            // Verificar que el modelo existe dentro de la marca
+                            if (!cars.trademark[camelCaseTrademark][modelValue]) {
+                                console.error("Error: Modelo no encontrado.");
+                                return null;
+                            }
+                        
+                            // Verificar que el tipo de viaje existe en el modelo
+                            if (!cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue]) {
+                                console.error("Error: Tipo de viaje no encontrado.");
+                                return null;
+                            }
+                        
+                            // Obtener el consumo del modelo según el tipo de viaje
+                            let fuelConsumption = cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue];
+                        
+                            // Verificar que los valores de distancia sean números válidos
+                            if (isNaN(distanceValue) || isNaN(distanceOValue)) {
+                                console.error("Error: Los valores de distancia deben ser números.");
+                                return null;
+                            }
+                        
+                            // Calcular los litros consumidos
+                            let totalLiters = (parseFloat(distanceValue) + parseFloat(distanceOValue)) / fuelConsumption;
+                        
+                            // Redondear a 2 decimales y convertir a número
+                            return Number(totalLiters.toFixed(2));
+                        }                        
 
                         totalPrice();
                         function totalPrice() {
