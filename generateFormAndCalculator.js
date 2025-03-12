@@ -864,7 +864,7 @@ selectTrademark.addEventListener("change", function () {
                         
                             // Redondear a 2 decimales y convertir a número
                             return totalLiters.toFixed(2);
-                        }                        
+                        }                       
 
                         totalPrice();
                         function totalPrice() {
