@@ -853,7 +853,7 @@ selectTrademark.addEventListener("change", function () {
                         var stationServiceValue = serviceStationSelectInput.value;
                         var typeGasolineValue = typeGasolineSelectInput.value;
 
-                        totalLiters();
+                        totalLiters(distanceValue, distanceOValue, camelCaseTrademark, modelValue, journeyTypeValue);
                         function totalLiters(distanceValue, distanceOValue, camelCaseTrademark, modelValue, journeyTypeValue) {
                             // Verificar que la marca existe
                             if (!cars.trademark[camelCaseTrademark]) {
