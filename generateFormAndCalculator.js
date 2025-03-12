@@ -855,38 +855,15 @@ selectTrademark.addEventListener("change", function () {
 
                         totalLiters(distanceValue, distanceOValue, camelCaseTrademark, modelValue, journeyTypeValue);
                         function totalLiters(distanceValue, distanceOValue, camelCaseTrademark, modelValue, journeyTypeValue) {
-                            // Verificar que la marca existe
-                            if (!cars.trademark[camelCaseTrademark]) {
-                                console.error("Error: Marca no encontrada.");
-                                return null;
-                            }
-                        
-                            // Verificar que el modelo existe dentro de la marca
-                            if (!cars.trademark[camelCaseTrademark][modelValue]) {
-                                console.error("Error: Modelo no encontrado.");
-                                return null;
-                            }
-                        
-                            // Verificar que el tipo de viaje existe en el modelo
-                            if (!cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue]) {
-                                console.error("Error: Tipo de viaje no encontrado.");
-                                return null;
-                            }
-                        
+                            
                             // Obtener el consumo del modelo según el tipo de viaje
                             let fuelConsumption = cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue];
-                        
-                            // Verificar que los valores de distancia sean números válidos
-                            if (isNaN(distanceValue) || isNaN(distanceOValue)) {
-                                console.error("Error: Los valores de distancia deben ser números.");
-                                return null;
-                            }
                         
                             // Calcular los litros consumidos
                             let totalLiters = (parseFloat(distanceValue) + parseFloat(distanceOValue)) / fuelConsumption;
                         
                             // Redondear a 2 decimales y convertir a número
-                            return Number(totalLiters.toFixed(2));
+                            return totalLiters.toFixed(2);
                         }                        
 
                         totalPrice();
