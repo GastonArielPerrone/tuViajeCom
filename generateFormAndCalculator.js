@@ -853,8 +853,8 @@ selectTrademark.addEventListener("change", function () {
                         var stationServiceValue = serviceStationSelectInput.value;
                         var typeGasolineValue = typeGasolineSelectInput.value;
 
-                        totalLiters(distanceValue, distanceOValue, camelCaseTrademark, modelValue, journeyTypeValue);
-                        function totalLiters(distanceValue, distanceOValue, camelCaseTrademark, modelValue, journeyTypeValue) {
+                        totalLiters();
+                        function totalLiters() {
                             
                             // Obtener el consumo del modelo según el tipo de viaje
                             let fuelConsumption = cars.trademark[camelCaseTrademark][modelValue][journeyTypeValue];
